@@ -28,7 +28,7 @@
                         <input type="text" id="secure-port-name"/>
                         <div class="port-enabled-container">
                             <div id="secure-port-enabled" class="port-enabled nf-checkbox checkbox-unchecked"></div>
-                            <span><fmt:message key="partials.canvas.secure-port-configuration.Enable"/>d</span>
+                            <span><fmt:message key="partials.canvas.secure-port-configuration.Enable"/></span>
                         </div>
                         <div class="clear"></div>
                     </div>
