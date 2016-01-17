@@ -15,9 +15,10 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="user-delete-dialog">
     <div class="dialog-content">
         <input type="hidden" id="user-id-delete-dialog"/>
-        Are you sure you want to delete the user account for '<span id="user-name-delete-dialog"></span>'?
+        <fmt:message key="partials.users.user-delete-dialog.user-id-delete-dialog"/>'<span id="user-name-delete-dialog"></span>'?
     </div>
 </div>

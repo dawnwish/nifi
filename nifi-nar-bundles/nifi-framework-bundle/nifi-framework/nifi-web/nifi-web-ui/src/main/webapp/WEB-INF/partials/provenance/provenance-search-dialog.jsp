@@ -15,21 +15,23 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="provenance-search-dialog">
     <div class="dialog-content">
         <div class="setting">
-            <div class="setting-name">Fields</div>
+            <div class="setting-name"><fmt:message key="partials.provenance.provenance-search-dialog.Fields"/></div>
             <div class="setting-field">
                 <div id="searchable-fields-container">
-                    <div id="no-searchable-fields" class="unset">No searchable fields have been configured.</div>
+                    <div id="no-searchable-fields" class="unset"><fmt:message key="partials.provenance.provenance-search-dialog.no-searchable-fields"/></div>
                 </div>
             </div>
         </div>
         <div class="setting">
             <div class="start-date-setting">
                 <div class="setting-name">
-                    Start date
-                    <img class="icon-info" src="images/iconInfo.png" alt="Info" title="The start date in the format 'mm/dd/yyyy'. Must also specify start time."/>
+                    <fmt:message key="partials.provenance.provenance-search-dialog.StartDate"/>
+                    <fmt:message key="partials.provenance.provenance-search-dialog.StartDate.title" var="title_StartDate"/>
+                    <img class="icon-info" src="images/iconInfo.png" alt="Info" title="${title_StartDate}"/>
                 </div>
                 <div class="setting-field">
                     <input type="text" id="provenance-search-start-date" class="provenance-small-input"/>
@@ -37,8 +39,9 @@
             </div>
             <div class="start-time-setting">
                 <div class="setting-name">
-                    Start time (<span class="timezone"></span>)
-                    <img class="icon-info" src="images/iconInfo.png" alt="Info" title="The start time in the format 'hh:mm:ss'. Must also specify start date."/>
+                    <fmt:message key="partials.provenance.provenance-search-dialog.StartTime"/>(<span class="timezone"></span>)
+                    <fmt:message key="partials.provenance.provenance-search-dialog.StartTime.title" var="title_StartTime"/>
+                    <img class="icon-info" src="images/iconInfo.png" alt="Info" title="${title_StartTime}"/>
                 </div>
                 <div class="setting-field">
                     <input type="text" id="provenance-search-start-time" class="provenance-time-input"/>
@@ -49,8 +52,9 @@
         <div class="setting">
             <div class="end-date-setting">
                 <div class="setting-name">
-                    End date
-                    <img class="icon-info" src="images/iconInfo.png" alt="Info" title="The end date in the format 'mm/dd/yyyy'. Must also specify end time."/>
+                    <fmt:message key="partials.provenance.provenance-search-dialog.EndDate"/>
+                    <fmt:message key="partials.provenance.provenance-search-dialog.EndDate.title" var="title_EndDate"/>
+                    <img class="icon-info" src="images/iconInfo.png" alt="Info" title="${title_EndDate}"/>
                 </div>
                 <div class="setting-field">
                     <input type="text" id="provenance-search-end-date" class="provenance-small-input"/>
@@ -58,8 +62,9 @@
             </div>
             <div class="end-time-setting">
                 <div class="setting-name">
-                    End time (<span class="timezone"></span>)
-                    <img class="icon-info" src="images/iconInfo.png" alt="Info" title="The end time in the format 'hh:mm:ss'. Must also specify end date."/>
+                    <fmt:message key="partials.provenance.provenance-search-dialog.EndTime"/>(<span class="timezone"></span>)
+                    <fmt:message key="partials.provenance.provenance-search-dialog.EndTime.title" var="title_EndTime"/>
+                    <img class="icon-info" src="images/iconInfo.png" alt="Info" title="${title_EndTime}"/>
                 </div>
                 <div class="setting-field">
                     <input type="text" id="provenance-search-end-time" class="provenance-time-input"/>
@@ -70,8 +75,9 @@
         <div class="setting">
             <div class="end-date-setting">
                 <div class="setting-name">
-                    Minimum file size
-                    <img class="icon-info" src="images/iconInfo.png" alt="Info" title="The minimum file size (e.g. 2 KB)."/>
+                    <fmt:message key="partials.provenance.provenance-search-dialog.MinimumFileSize"/>
+                    <fmt:message key="partials.provenance.provenance-search-dialog.MinimumFileSize.title" var="title_MinimumFileSize"/>
+                    <img class="icon-info" src="images/iconInfo.png" alt="Info" title="${title_MinimumFileSize}"/>
                 </div>
                 <div class="setting-field">
                     <input type="text" id="provenance-search-minimum-file-size" class="provenance-small-input"/>
@@ -79,8 +85,9 @@
             </div>
             <div class="end-time-setting">
                 <div class="setting-name">
-                    Maximum file size
-                    <img class="icon-info" src="images/iconInfo.png" alt="Info" title="The maximum file size (e.g. 4 GB)."/>
+                    <fmt:message key="partials.provenance.provenance-search-dialog.MaximumFileSize"/>
+                    <fmt:message key="partials.provenance.provenance-search-dialog.MaximumFileSize.title" var="title_MaximumFileSize"/>
+                    <img class="icon-info" src="images/iconInfo.png" alt="Info" title="${title_MaximumFileSize}"/>
                 </div>
                 <div class="setting-field">
                     <input type="text" id="provenance-search-maximum-file-size" class="provenance-time-input"/>
@@ -90,7 +97,7 @@
         </div>
         <div id="provenance-search-location-container" class="setting">
             <div class="setting-name">
-                Search location
+                <fmt:message key="partials.provenance.provenance-search-dialog.SearchLocation"/>
             </div>
             <div class="setting-field">
                 <div id="provenance-search-location"></div>

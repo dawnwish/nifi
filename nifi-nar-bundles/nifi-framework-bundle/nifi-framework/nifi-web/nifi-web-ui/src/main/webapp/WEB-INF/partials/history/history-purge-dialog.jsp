@@ -15,13 +15,15 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="history-purge-dialog">
     <div class="dialog-content">
         <div class="setting" style="margin-bottom: 0px;">
             <div class="end-date-setting">
                 <div class="setting-name">
-                    End date
-                    <img class="icon-info" src="images/iconInfo.png" alt="Info" title="The purge end date in the format 'mm/dd/yyyy'. Must also specify end time."/>
+                    <fmt:message key="partials.history.history-purge-dialog.EndDate"/>
+                    <fmt:message key="partials.history.history-purge-dialog.EndDate.title" var="title_EndDate"/>
+                    <img class="icon-info" src="images/iconInfo.png" alt="Info" title="${title_EndDate}"/>
                 </div>
                 <div class="setting-field">
                     <input type="text" id="history-purge-end-date" class="history-small-input"/>
@@ -29,8 +31,9 @@
             </div>
             <div class="end-time-setting">
                 <div class="setting-name">
-                    End time (<span class="timezone"></span>)
-                    <img id="purge-end-time-info" class="icon-info" src="images/iconInfo.png" alt="Info" title="The end time in the format 'hh:mm:ss'. Must also specify end date."/>
+                    <fmt:message key="partials.history.history-purge-dialog.EndTime"/>(<span class="timezone"></span>)
+                    <fmt:message key="partials.history.history-purge-dialog.EndTime.title" var="title_EndTime"/>
+                    <img id="purge-end-time-info" class="icon-info" src="images/iconInfo.png" alt="Info" title="${title_EndTime}"/>
                 </div>
                 <div class="setting-field">
                     <input type="text" id="history-purge-end-time" class="history-small-input"/>

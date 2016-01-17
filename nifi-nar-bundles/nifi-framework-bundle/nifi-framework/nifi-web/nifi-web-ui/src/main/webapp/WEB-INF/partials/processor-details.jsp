@@ -15,6 +15,7 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="processor-details">
     <div class="processor-details-tab-container">
         <div id="processor-details-tabs"></div>
@@ -22,20 +23,20 @@
             <div id="details-standard-settings-tab-content" class="details-tab">
                 <div class="settings-left">
                     <div class="setting">
-                        <div class="setting-name">Name</div>
+                        <div class="setting-name"><fmt:message key="partials.processor-details.read-only-processor-name"/></div>
                         <div class="setting-field">
                             <span id="read-only-processor-name"></span>
                         </div>
                         <div class="clear"></div>
                     </div>
                     <div class="setting">
-                        <div class="setting-name">Id</div>
+                        <div class="setting-name"><fmt:message key="partials.processor-details.read-only-processor-id"/></div>
                         <div class="setting-field">
                             <span id="read-only-processor-id"></span>
                         </div>
                     </div>
                     <div class="setting">
-                        <div class="setting-name">Type</div>
+                        <div class="setting-name"><fmt:message key="partials.processor-details.read-only-processor-type"/></div>
                         <div class="setting-field">
                             <span id="read-only-processor-type"></span>
                         </div>
@@ -44,8 +45,9 @@
                     <div class="setting">
                         <div class="penalty-duration-setting">
                             <div class="setting-name">
-                                Penalty duration
-                                <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="The amount of time used when this processor penalizes a FlowFile."/>
+                                <fmt:message key="partials.processor-details.read-only-penalty-duration"/>
+                                <fmt:message key="partials.processor-details.read-only-penalty-duration.title" var="title_read_only_penalty_duration"/>
+                                <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="${title_read_only_penalty_duration}"/>
                             </div>
                             <div class="setting-field">
                                 <span id="read-only-penalty-duration"></span>
@@ -53,8 +55,9 @@
                         </div>
                         <div class="yield-duration-setting">
                             <div class="setting-name">
-                                Yield duration
-                                <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="When a processor yields, it will not be scheduled again until this amount of time elapses."/>
+                                <fmt:message key="partials.processor-details.read-only-yield-duration"/>
+                                <fmt:message key="partials.processor-details.read-only-yield-duration.title" var="title_read_only_yield_duration"/>
+                                <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="${title_read_only_yield_duration}"/>
                             </div>
                             <div class="setting-field">
                                 <span id="read-only-yield-duration"></span>
@@ -65,8 +68,9 @@
                     <div class="setting">
                         <div class="bulletin-setting">
                             <div class="setting-name">
-                                Bulletin level
-                                <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="The level at which this processor will generate bulletins."/>
+                                <fmt:message key="partials.processor-details.read-only-bulletin-level"/>
+                                <fmt:message key="partials.processor-details.read-only-bulletin-level.title" var="title_read_only_bulletin_level"/>
+                                <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="${title_read_only_bulletin_level}"/>
                             </div>
                             <div class="setting-field">
                                 <span id="read-only-bulletin-level"></span>
@@ -79,8 +83,9 @@
                 <div class="settings-right">
                     <div class="setting">
                         <div class="setting-name">
-                            Auto terminate relationships
-                            <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="Will automatically terminate FlowFiles sent to all relationships in bold."/>
+                            <fmt:message key="partials.processor-details.read-only-auto-terminate-relationship-names"/>
+                            <fmt:message key="partials.processor-details.read-only-auto-terminate-relationship-names.title" var="title_read_only_auto_terminate_relationship_names"/>
+                            <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="${title_read_only_auto_terminate_relationship_names}"/>
                         </div>
                         <div class="setting-field">
                             <div id="read-only-auto-terminate-relationship-names"></div>
@@ -93,8 +98,9 @@
                     <div class="setting">
                         <div class="scheduling-strategy-setting">
                             <div class="setting-name">
-                                Scheduling strategy
-                                <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="The strategy used to schedule this processor."/>
+                                <fmt:message key="partials.processor-details.read-only-scheduling-strategy"/>
+                                <fmt:message key="partials.processor-details.read-only-scheduling-strategy.title" var="title_read_only_scheduling_strategy"/>
+                                <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="${title_read_only_scheduling_strategy}"/>
                             </div>
                             <div class="setting-field">
                                 <span id="read-only-scheduling-strategy"></span>
@@ -105,8 +111,9 @@
                     <div class="setting">
                         <div class="concurrently-schedulable-tasks-setting">
                             <div class="setting-name">
-                                Concurrent tasks
-                                <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="The number of tasks that should be concurrently scheduled for this processor."/>
+                                <fmt:message key="partials.processor-details.read-only-concurrently-schedulable-tasks"/>
+                                <fmt:message key="partials.processor-details.read-only-concurrently-schedulable-tasks.title" var="title_read_only_concurrently_schedulable_tasks"/>
+                                <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="${title_read_only_concurrently_schedulable_tasks}"/>
                             </div>
                             <div class="setting-field">
                                 <span id="read-only-concurrently-schedulable-tasks"></span>
@@ -114,8 +121,9 @@
                         </div>
                         <div id="read-only-run-schedule" class="scheduling-period-setting">
                             <div class="setting-name">
-                                Run schedule
-                                <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="The minimum number of seconds that should elapse between task executions."/>
+                                <fmt:message key="partials.processor-details.read-only-scheduling-period"/>
+                                <fmt:message key="partials.processor-details.read-only-scheduling-period.title" var="title_read_only_scheduling_period"/>
+                                <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="${title_read_only_scheduling_period}"/>
                             </div>
                             <div class="setting-field">
                                 <span id="read-only-scheduling-period"></span>
@@ -128,9 +136,10 @@
                 <div class="settings-right">
                     <div class="setting">
                         <div class="setting-name">
-                            Run duration
+                            <fmt:message key="partials.processor-details.read-only-run-duration"/>
                             <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info"
-                                 title="When scheduled to run, the processor will continue running for up to this duration. A run duration of 0ms will execute once when scheduled."/>
+                                 <fmt:message key="partials.processor-details.read-only-run-duration.title" var="title_read_only_run_duration"/>
+                                 title="${title_read_only_run_duration}"/>
                         </div>
                         <div class="setting-field">
                             <span id="read-only-run-duration"></span>
@@ -143,7 +152,7 @@
             </div>
             <div id="details-processor-comments-tab-content" class="details-tab">
                 <div class="setting">
-                    <div class="setting-name">Comments</div>
+                    <div class="setting-name"><fmt:message key="partials.processor-details.read-only-processor-comments"/></div>
                     <div class="setting-field">
                         <div id="read-only-processor-comments"></div>
                     </div>

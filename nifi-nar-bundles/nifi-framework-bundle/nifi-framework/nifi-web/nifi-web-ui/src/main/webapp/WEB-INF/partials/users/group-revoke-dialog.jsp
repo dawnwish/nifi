@@ -15,8 +15,9 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="group-revoke-dialog">
     <div class="dialog-content">
-        Are you sure you want to revoke access for all users in '<span id="group-name-revoke-dialog"></span>'?
+        <fmt:message key="partials.users.group-revoke-dialog.dialog-content"/><span id="group-name-revoke-dialog"></span>'?
     </div>
 </div>

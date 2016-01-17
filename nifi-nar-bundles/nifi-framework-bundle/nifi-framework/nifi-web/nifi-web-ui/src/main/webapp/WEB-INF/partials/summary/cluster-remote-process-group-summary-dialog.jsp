@@ -15,12 +15,14 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="cluster-remote-process-group-summary-dialog">
     <div class="dialog-content">
         <div id="cluster-remote-process-group-summary-header">
-            <div id="cluster-remote-process-group-refresh-button" class="summary-refresh pointer" title="Refresh"></div>
+            <fmt:message key="partials.summary.cluster-remote-process-group-summary-dialog.Refresh" var="Refresh"/>
+            <div id="cluster-remote-process-group-refresh-button" class="summary-refresh pointer" title="${Refresh}"></div>
             <div id="cluster-remote-process-group-summary-last-refreshed-container">
-                Last updated:&nbsp;<span id="cluster-remote-process-group-summary-last-refreshed"></span>
+                <fmt:message key="partials.summary.cluster-remote-process-group-summary-dialog.LastUpdated"/>&nbsp;<span id="cluster-remote-process-group-summary-last-refreshed"></span>
             </div>
             <div id="cluster-remote-process-group-summary-loading-container" class="loading-container"></div>
             <div id="cluster-remote-process-group-details-container">

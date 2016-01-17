@@ -15,21 +15,23 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="history">
-    <div id="history-header-text">NiFi History</div>
+    <div id="history-header-text"><fmt:message key="partials.history.history-content.history-header-text"/></div>
     <div id="history-refresh-container">
-        <div id="refresh-button" class="history-refresh pointer" title="Refresh"></div>
+        <fmt:message key="partials.history.history-content.Refresh" var="Refresh"/>
+        <div id="refresh-button" class="history-refresh pointer" title="${Refresh}"></div>
         <div id="history-last-refreshed-container">
-            Last updated:&nbsp;<span id="history-last-refreshed"></span>
+            <fmt:message key="partials.history.history-content.LastUpdated"/><span id="history-last-refreshed"></span>
         </div>
         <div id="history-loading-container" class="loading-container"></div>
         <div id="history-filter-container">
             <div id="history-filter-overview">
-                A filter has been applied.&nbsp;
-                <span id="clear-history-filter">Clear filter</span>
+                <fmt:message key="partials.history.history-content.history-filter-overview"/>&nbsp;
+                <span id="clear-history-filter"><fmt:message key="partials.history.history-content.clear-history-filter"/></span>
             </div>
-            <div id="history-filter-button" class="button button-normal pointer">Filter</div>
-            <div id="history-purge-button" class="button button-normal pointer hidden">Purge</div>
+            <div id="history-filter-button" class="button button-normal pointer"><fmt:message key="partials.history.history-content.Filter"/></div>
+            <div id="history-purge-button" class="button button-normal pointer hidden"><fmt:message key="partials.history.history-content.Purge"/></div>
         </div>
     </div>
     <div id="history-table"></div>

@@ -15,22 +15,23 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="process-group-configuration">
     <div class="dialog-content">
         <div class="setting">
-            <div class="setting-name">Name</div>
+            <div class="setting-name"><fmt:message key="partials.canvas.process-group-configuration.Name"/></div>
             <div class="setting-field">
                 <input type="text" id="process-group-name" name="process-group-name" class="process-group-field"/>
             </div>
         </div>
         <div class="setting">
-            <div class="setting-name">Id</div>
+            <div class="setting-name"><fmt:message key="partials.canvas.process-group-configuration.Id"/></div>
             <div class="setting-field">
                 <span id="process-group-id"></span>
             </div>
         </div>
         <div class="setting">
-            <div class="setting-name">Comments</div>
+            <div class="setting-name"><fmt:message key="partials.canvas.process-group-configuration.Comments"/></div>
             <div class="setting-field">
                 <textarea cols="30" rows="4" id="process-group-comments" name="process-group-comments" class="process-group-field"></textarea>
             </div>

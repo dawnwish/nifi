@@ -15,6 +15,7 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="disable-controller-service-dialog">
     <div class="dialog-content">
         <div class="settings-left">
@@ -28,10 +29,11 @@
                 </div>
             </div>
             <div id="disable-controller-service-scope-container" class="setting">
-                <div class="setting-name">Scope</div>
+                <div class="setting-name"><fmt:message key="partials.canvas.disable-controller-service-dialog.Scope"/></div>
                 <div class="setting-field">
-                    Service and referencing components
-                    <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="Referencing components must be disabled/stopped in order to disable this service."/>
+                    <fmt:message key="partials.canvas.disable-controller-service-dialog.Scope.setting-field"/>
+                    <fmt:message key="partials.canvas.disable-controller-service-dialog.Scope.setting-field.title" var="title_setting_field"/>
+                    <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="${title_setting_field}"/>
                 </div>
             </div>
             <div id="disable-controller-service-progress-container" class="setting hidden">
@@ -39,17 +41,17 @@
                 <div class="setting-field">
                     <ol id="disable-controller-service-progress">
                         <li>
-                            Stopping referencing processors and reporting tasks
+                            <fmt:message key="partials.canvas.disable-controller-service-dialog.disable-controller-service-progress.1"/>
                             <div id="disable-referencing-schedulable" class="disable-referencing-components"></div>
                             <div class="clear"></div>
                         </li>
                         <li>
-                            Disabling referencing controller services
+                            <fmt:message key="partials.canvas.disable-controller-service-dialog.disable-controller-service-progress.2"/>
                             <div id="disable-referencing-services" class="disable-referencing-components"></div>
                             <div class="clear"></div>
                         </li>
                         <li>
-                            Disabling this controller service
+                            <fmt:message key="partials.canvas.disable-controller-service-dialog.disable-controller-service-progress.3"/>
                             <div id="disable-controller-service" class="disable-referencing-components"></div>
                             <div class="clear"></div>
                         </li>
@@ -61,8 +63,9 @@
         <div class="settings-right">
             <div class="setting">
                 <div class="setting-name">
-                    Referencing Components
-                    <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="Other components referencing this controller service."/>
+                    <fmt:message key="partials.canvas.disable-controller-service-dialog.ReferencingComponents"/>
+                    <fmt:message key="partials.canvas.disable-controller-service-dialog.ReferencingComponents.title" var="title_ReferencingComponents"/>
+                    <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="${title_ReferencingComponents}"/>
                 </div>
                 <div class="setting-field">
                     <div id="disable-controller-service-referencing-components"></div>

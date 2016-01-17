@@ -15,12 +15,14 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="cluster-input-port-summary-dialog">
     <div class="dialog-content">
         <div id="cluster-input-port-summary-header">
-            <div id="cluster-input-port-refresh-button" class="summary-refresh pointer" title="Refresh"></div>
+            <fmt:message key="partials.summary.cluster-input-port-summary-dialog.Refresh" var="Refresh"/>
+            <div id="cluster-input-port-refresh-button" class="summary-refresh pointer" title="${Refresh}"></div>
             <div id="cluster-input-port-summary-last-refreshed-container">
-                Last updated:&nbsp;<span id="cluster-input-port-summary-last-refreshed"></span>
+                <fmt:message key="partials.summary.cluster-input-port-summary-dialog.LastUpdated"/>&nbsp;<span id="cluster-input-port-summary-last-refreshed"></span>
             </div>
             <div id="cluster-input-port-summary-loading-container" class="loading-container"></div>
             <div id="cluster-input-port-details-container">

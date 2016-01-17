@@ -15,11 +15,14 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="shell-dialog" class="dialog cancellable">
     <div id="shell-container">
         <div id="shell-close-container">
-            <div id="shell-undock-button" class="undock-normal pointer" title="Open in New Window"></div>
-            <div id="shell-close-button" class="close-normal pointer" title="Close"></div>
+            <fmt:message key="partials.canvas.shell.OpenNewWindows" var="OpenNewWindows"/>
+            <div id="shell-undock-button" class="undock-normal pointer" title="${OpenNewWindows}"></div>
+            <fmt:message key="paritals.canvas.shell.Close" var="Close"/>
+            <div id="shell-close-button" class="close-normal pointer" title="${Close}"></div>
             <div class="clear"></div>
         </div>
         <div id="shell"></div>

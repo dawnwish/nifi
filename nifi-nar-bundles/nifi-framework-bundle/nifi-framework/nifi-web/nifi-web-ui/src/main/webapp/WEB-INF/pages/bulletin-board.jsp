@@ -15,10 +15,11 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>NiFi Bulletin Board</title>
+        <title><fmt:message key="pages.bulletin-board.title"/></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link rel="shortcut icon" href="images/nifi16.ico"/>
         <link rel="stylesheet" href="css/reset.css" type="text/css" />
@@ -37,6 +38,7 @@
         <script type="text/javascript" src="js/jquery/ui-smoothness/jquery-ui-1.10.4.min.js"></script>
         <script type="text/javascript" src="js/jquery/qtip2/jquery.qtip.min.js"></script>
         <script type="text/javascript" src="js/nf/nf-namespace.js?${project.version}"></script>
+        <script type="text/javascript" src="js/nf/globalization/resources.js"></script>
         ${nf.bulletin.board.script.tags}
     </head>
     <body>

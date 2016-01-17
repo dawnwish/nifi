@@ -15,10 +15,11 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="remote-port-configuration">
     <div class="dialog-content">
         <div class="setting">
-            <div class="setting-name">Name</div>
+            <div class="setting-name"><fmt:message key="partials.canvas.remote-port-configuration.Name"/></div>
             <div class="setting-field">
                 <span id="remote-port-id" class="hidden"></span>
                 <span id="remote-port-type" class="hidden"></span>
@@ -27,14 +28,15 @@
         </div>
         <div class="setting">
             <div class="setting-name">
-                Concurrent tasks
-                <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="The number of tasks that should be concurrently scheduled for this port."/>
+                <fmt:message key="partials.canvas.remote-port-configuration.ConcurrentTasks"/>
+                <fmt:message key="partials.canvas.remote-port-configuration.ConcurrentTasks.title" var="title_ConcurrentTasks"/>
+                <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="${title_ConcurrentTasks}"/>
             </div>
             <div class="setting-field">
                 <input id="remote-port-concurrent-tasks" type="text"/>
                 <div id="remote-port-use-compression-container">
                     <div id="remote-port-use-compression" class="nf-checkbox"></div>
-                    <span>Compressed</span>
+                    <span><fmt:message key="partials.canvas.remote-port-configuration.remote-port-use-compression"/></span>
                 </div>
             </div>
         </div>

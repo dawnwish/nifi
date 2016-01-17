@@ -15,12 +15,13 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="cluster-processor-summary-dialog">
     <div class="dialog-content">
         <div id="cluster-processor-summary-header">
             <div id="cluster-processor-refresh-button" class="summary-refresh pointer" title="Refresh"></div>
             <div id="cluster-processor-summary-last-refreshed-container">
-                Last updated:&nbsp;<span id="cluster-processor-summary-last-refreshed"></span>
+                <fmt:message key="partials.summary.cluster-processor-summary-dialog.LastUpdated"/>&nbsp;<span id="cluster-processor-summary-last-refreshed"></span>
             </div>
             <div id="cluster-processor-summary-loading-container" class="loading-container"></div>
             <div id="cluster-processor-details-container">

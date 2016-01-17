@@ -15,31 +15,33 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="users">
     <div id="users-header-and-filter">
-        <div id="users-header-text">NiFi Users</div>
+        <div id="users-header-text"><fmt:message key="partials.users.users-content.users-header-text"/></div>
         <div id="users-filter-controls">
             <div id="users-filter-container">
                 <input type="text" id="users-filter"/>
                 <div id="users-filter-type"></div>
             </div>
             <div id="users-filter-stats">
-                Displaying&nbsp;<span id="displayed-users"></span>&nbsp;of&nbsp;<span id="total-users"></span>
+                <fmt:message key="partials.users.users-content.Displaying"/><span id="displayed-users"></span><fmt:message key="partials.users.users-content.Of"/><span id="total-users"></span>
             </div>
         </div>
     </div>
     <div id="users-refresh-container">
-        <div id="refresh-button" class="users-refresh pointer" title="Refresh"></div>
+        <fmt:message key="partials.users.users-content.Refresh" var="Refresh"/>
+        <div id="refresh-button" class="users-refresh pointer" title="${Refresh}"></div>
         <div id="users-last-refreshed-container">
-            Last updated:&nbsp;<span id="users-last-refreshed"></span>
+            <fmt:message key="partials.users.users-content.LastUpdated"/>&nbsp;<span id="users-last-refreshed"></span>
         </div>
         <div id="users-loading-container" class="loading-container"></div>
         <div id="group-controls-container">
             <div id="group-collaspe-container">
                 <div id="group-collaspe-checkbox" class="nf-checkbox checkbox-unchecked"></div>
-                <span>&nbsp;Show by group</span>
+                <span>&nbsp;<fmt:message key="partials.users.users-content.ShowByGroup"/></span>
             </div>
-            <div id="group-button" class="button-normal pointer">Group</div>
+            <div id="group-button" class="button-normal pointer"><fmt:message key="partials.users.users-content.Group"/></div>
         </div>
     </div>
     <div id="users-table"></div>

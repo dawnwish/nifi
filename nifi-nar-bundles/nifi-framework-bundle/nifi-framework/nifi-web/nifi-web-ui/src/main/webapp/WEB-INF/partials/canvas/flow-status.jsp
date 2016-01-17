@@ -15,26 +15,27 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="flow-status">
     <div class="flow-status-property-element">
-        Active threads:
+        <fmt:message key="partials.canvas.flow-status.ActiveThreads"/>
         <span id="active-thread-count" class="flow-status-property-value"></span>
     </div>
     <div class="flow-status-property-element">
-        Queued:
+        <fmt:message key="partials.canvas.flow-status.Queued"/>
         <span id="total-queued" class="flow-status-property-value"></span>
     </div>
     <div id="connected-nodes-element" class="flow-status-property-element">
-        Connected nodes:
+        <fmt:message key="partials.canvas.flow-status.connected-nodes-element"/>
         <span id="connected-nodes-count" class="flow-status-property-value"></span>
     </div>
     <div class="flow-status-property-element">
-        Stats last refreshed:
+        <fmt:message key="partials.canvas.flow-status.flow-status-property-element"/>
         <span id="stats-last-refreshed" class="flow-status-property-value"></span>
     </div>
     <div id="refresh-required-container" class="flow-status-property-element">
         <div id="refresh-required-icon"></div>
-        <span id="refresh-required-link" class="link">Refresh</span>
+        <span id="refresh-required-link" class="link"><fmt:message key="partials.canvas.flow-status.refresh-required-link"/></span>
     </div>
     <div id="controller-bulletins" class="bulletin-icon"></div>
     <div id="canvas-loading-container" class="loading-container"></div>

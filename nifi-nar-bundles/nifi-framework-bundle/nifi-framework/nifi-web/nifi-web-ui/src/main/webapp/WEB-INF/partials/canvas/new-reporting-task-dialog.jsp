@@ -15,6 +15,7 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="new-reporting-task-dialog">
     <div class="dialog-content">
         <div id="reporting-task-type-filter-controls">
@@ -22,12 +23,12 @@
                 <input type="text" id="reporting-task-type-filter"/>
             </div>
             <div id="reporting-task-type-filter-status">
-                Displaying&nbsp;<span id="displayed-reporting-task-types"></span>&nbsp;of&nbsp;<span id="total-reporting-task-types"></span>
+                <fmt:message key="partials.canvas.new-reporting-task-dialog.Displaying"/><span id="displayed-reporting-task-types"></span>&nbsp;of&nbsp;<span id="total-reporting-task-types"></span>
             </div>
         </div>
         <div id="reporting-task-tag-cloud-container">
             <div class="setting">
-                <div class="setting-name">Tags</div>
+                <div class="setting-name"><fmt:message key="partials.canvas.new-reporting-task-dialog.Tags"/></div>
                 <div class="setting-field">
                     <div id="reporting-task-tag-cloud"></div>
                 </div>
@@ -44,7 +45,7 @@
         </div>
         <div class="clear"></div>
         <div id="reporting-task-availability-container" class="hidden">
-            <div class="setting-name availability-label">Available on</div>
+            <div class="setting-name availability-label"><fmt:message key="partials.canvas.new-reporting-task-dialog.AvailableOn"/></div>
             <div id="reporting-task-availability-combo"></div>
             <div class="clear"></div>
         </div>

@@ -15,13 +15,15 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="status-history-dialog" class="dialog">
     <div id="status-history-details"></div>
     <div id="status-history-container">
         <div id="status-history-refresh-container">
-            <div id="status-history-refresh-button" class="summary-refresh pointer" title="Refresh"></div>
+            <fmt:message key="partials.status-history-dialog.Refresh" var="Refresh"/>
+            <div id="status-history-refresh-button" class="summary-refresh pointer" title="${Refresh}"></div>
             <div id="status-history-last-refreshed-container">
-                Last updated:&nbsp;<span id="status-history-last-refreshed"></span>
+                <fmt:message key="partials.status-history-dialog.LastUpdated"/>:&nbsp;<span id="status-history-last-refreshed"></span>
             </div>
             <div id="status-history-loading-container" class="loading-container"></div>
             <div id="status-history-metric-combo"></div>
@@ -31,7 +33,7 @@
     </div>
     <div class="clear"></div>
     <div class="dialog-buttons">
-        <div id="status-history-close" class="button button-normal">Close</div>
+        <div id="status-history-close" class="button button-normal"><fmt:message key="partials.status-history-dialog.Close"/></div>
         <div class="clear"></div>
     </div>
 </div>

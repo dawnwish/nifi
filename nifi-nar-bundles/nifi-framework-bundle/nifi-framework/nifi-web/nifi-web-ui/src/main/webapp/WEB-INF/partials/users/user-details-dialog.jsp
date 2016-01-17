@@ -15,10 +15,11 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="user-details-dialog">
     <div class="dialog-content">
         <div class="setting">
-            <div class="setting-name">User</div>
+            <div class="setting-name"><fmt:message key="partials.users.user-details-dialog.User"/></div>
             <div class="setting-field">
                 <span id="user-name-details-dialog"></span>
             </div>
@@ -32,21 +33,21 @@
             <div class="clear"></div>
         </div>
         <div class="setting">
-            <div class="setting-name">Created</div>
+            <div class="setting-name"><fmt:message key="partials.users.user-details-dialog.Created"/></div>
             <div class="setting-field">
                 <span id="user-created-details-dialog"></span>
             </div>
             <div class="clear"></div>
         </div>
         <div class="setting">
-            <div class="setting-name">Last Verified</div>
+            <div class="setting-name"><fmt:message key="partials.users.user-details-dialog.LastVerified"/></div>
             <div class="setting-field">
                 <span id="user-verified-details-dialog"></span>
             </div>
             <div class="clear"></div>
         </div>
         <div class="setting">
-            <div class="setting-name">Justification</div>
+            <div class="setting-name"><fmt:message key="partials.users.user-details-dialog.Justification"/></div>
             <div class="setting-field">
                 <div id="user-justification-details-dialog"></div>
             </div>

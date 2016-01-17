@@ -15,9 +15,10 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="bulletin-board">
     <div id="bulletin-board-header-and-filter">
-        <div id="bulletin-board-header-text">NiFi Templates</div>
+        <div id="bulletin-board-header-text"><fmt:message key="partials.bulletin-board.bulletin-board-content.bulletin-board-header-text"/></div>
         <div id="bulletin-board-filter-controls">
             <div id="bulletin-board-filter-container">
                 <input type="text" id="bulletin-board-filter"/>
@@ -26,14 +27,15 @@
         </div>
     </div>
     <div id="bulletin-board-refresh-container">
-        <div id="refresh-button" class="bulletin-board-refresh pointer" title="Start/Stop auto refresh"></div>
+		<fmt:message key="partials.bulletin-board.bulletin-board-content.refresh-button" var="refresh-button"/>
+        <div id="refresh-button" class="bulletin-board-refresh pointer" title="${refresh_button}"></div>
         <div id="bulletin-board-last-refreshed-container">
-            Last updated:&nbsp;<span id="bulletin-board-last-refreshed"></span>
+		<fmt:message key="partials.bulletin-board.bulletin-board-content.bulletin-board-last-refreshed-container"/>:&nbsp;<span id="bulletin-board-last-refreshed"></span>
         </div>
         <div id="bulletin-board-loading-container" class="loading-container"></div>
         <div id="bulletin-board-status-container">
             <div id="bulletin-error-message"></div>
-            <div id="clear-bulletins-button" class="button-normal pointer">Clear</div>
+            <div id="clear-bulletins-button" class="button-normal pointer"><fmt:message key="partials.bulletin-board.Clear"/></div>
         </div>
     </div>
     <div id="bulletin-board-container"></div>

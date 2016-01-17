@@ -15,10 +15,11 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="new-process-group-dialog">
     <div class="dialog-content">
         <div class="setting">
-            <div class="setting-name">Process group name</div>
+            <div class="setting-name"><fmt:message key="partials.canvas.new-process-group-dialog.ProcessGroupName"/></div>
             <div class="setting-field">
                 <input id="new-process-group-name" type="text"/>
             </div>

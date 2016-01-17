@@ -15,6 +15,7 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="counters">
     <div id="counters-header-and-filter">
         <div id="counters-header-text">NiFi Counters</div>
@@ -24,14 +25,15 @@
                 <div id="counters-filter-type"></div>
             </div>
             <div id="counters-filter-stats">
-                Displaying&nbsp;<span id="displayed-counters"></span>&nbsp;of&nbsp;<span id="total-counters"></span>
+                <fmt:message key="partials.counters.counters-content.Displaying"/><span id="displayed-counters"></span><fmt:message key="partials.counters.counters-content.Of"/><span id="total-counters"></span>
             </div>
         </div>
     </div>
     <div id="counters-refresh-container">
-        <div id="refresh-button" class="counters-refresh pointer" title="Refresh"></div>
+        <fmt:message key="partials.counters.counters-content.Refresh" var="Refresh"/>
+        <div id="refresh-button" class="counters-refresh pointer" title="${Refresh}"></div>
         <div id="counters-last-refreshed-container">
-            Last updated:&nbsp;<span id="counters-last-refreshed"></span>
+            <fmt:message key="partials.counters.counters-content.LastUpdated"/><span id="counters-last-refreshed"></span>
         </div>
         <div id="counters-loading-container" class="loading-container"></div>
     </div>

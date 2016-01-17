@@ -15,34 +15,36 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="secure-port-details">
     <div class="dialog-content">
         <div id="secure-port-details-tabs"></div>
         <div id="secure-port-details-tabs-content">
             <div id="read-only-secure-port-settings-tab-content" class="configuration-tab">
                 <div class="secure-port-setting">
-                    <div class="setting-name">Port name</div>
+                    <div class="setting-name"><fmt:message key="partials.canvas.secure-port-details.PortName"/></div>
                     <div class="setting-field">
                         <div id="read-only-secure-port-name"></div>
                     </div>
                 </div>
                 <div class="secure-port-setting">
-                    <div class="setting-name">Id</div>
+                    <div class="setting-name"><fmt:message key="partials.canvas.secure-port-details.Id"/></div>
                     <div class="setting-field">
                         <span id="read-only-secure-port-id"></span>
                     </div>
                 </div>
                 <div id="secure-port-concurrent-task-container" class="secure-port-setting">
                     <div class="setting-name">
-                        Concurrent tasks
-                        <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="The number of tasks that should be concurrently scheduled for this port."/>
+                        <fmt:message key="partials.canvas.secure-port-details.ConcurrentTasks"/>
+                        <fmt:message key="partials.canvas.secure-port-details.ConcurrentTasks.title" var="title_ConcurrentTasks"/>
+                        <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="${title_ConcurrentTasks}"/>
                     </div>
                     <div class="setting-field">
                         <div id="read-only-secure-port-concurrent-tasks"></div>
                     </div>
                 </div>
                 <div class="secure-port-setting">
-                    <div class="setting-name">Comments</div>
+                    <div class="setting-name"><fmt:message key="partials.canvas.secure-port-details.Comments"/></div>
                     <div class="setting-field">
                         <div id="read-only-secure-port-comments"></div>
                     </div>
@@ -50,13 +52,13 @@
             </div>
             <div id="read-only-secure-port-access-control-tab-content" class="configuration-tab">
                 <div class="secure-port-setting">
-                    <div class="setting-name">Allowed Users</div>
+                    <div class="setting-name"><fmt:message key="partials.canvas.secure-port-details.AllowedUsers"/></div>
                     <div class="setting-field allowed-container">
                         <ul id="read-only-allowed-users" class="allowed"></ul>
                     </div>
                 </div>
                 <div class="secure-port-setting">
-                    <div class="setting-name">Allowed Groups</div>
+                    <div class="setting-name"><fmt:message key="partials.canvas.secure-port-details.AllowedGroups"/></div>
                     <div class="setting-field allowed-container">
                         <ul id="read-only-allowed-groups" class="allowed"></ul>
                     </div>

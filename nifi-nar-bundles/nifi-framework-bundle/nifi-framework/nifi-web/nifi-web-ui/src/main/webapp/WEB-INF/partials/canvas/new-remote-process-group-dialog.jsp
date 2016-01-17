@@ -15,10 +15,11 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="new-remote-process-group-dialog">
     <div class="dialog-content">
         <div class="setting">
-            <div class="setting-name">URL</div>
+            <div class="setting-name"><fmt:message key="partials.canvas.new-remote-process-group-dialog.URL"/></div>
             <div class="setting-field">
                 <input id="new-remote-process-group-uri" type="text" placeholder="https://remotehost:8080/nifi"/>
             </div>

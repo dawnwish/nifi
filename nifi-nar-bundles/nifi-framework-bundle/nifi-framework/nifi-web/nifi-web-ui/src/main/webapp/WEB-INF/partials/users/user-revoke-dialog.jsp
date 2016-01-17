@@ -15,9 +15,10 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="user-revoke-dialog">
     <div class="dialog-content">
         <input type="hidden" id="user-id-revoke-dialog"/>
-        Are you sure you want to revoke access for '<span id="user-name-revoke-dialog"></span>'?
+        <fmt:message key="partials.users.user-revoke-dialog.user-id-revoke-dialog"/>'<span id="user-name-revoke-dialog"></span>'?
     </div>
 </div>

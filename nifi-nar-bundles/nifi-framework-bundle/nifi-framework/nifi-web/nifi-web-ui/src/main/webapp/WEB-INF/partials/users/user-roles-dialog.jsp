@@ -15,43 +15,44 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="user-roles-dialog">
     <div class="dialog-content">
         <div class="setting">
             <input type="hidden" id="user-id-roles-dialog"/>
-            <div class="setting-name">User</div>
+            <div class="setting-name"><fmt:message key="partials.users.user-roles-dialog.User"/></div>
             <div class="setting-field">
                 <span id="user-name-roles-dialog"></span>
             </div>
             <div class="clear"></div>
         </div>
         <div class="setting">
-            <div class="setting-name">Justification</div>
+            <div class="setting-name"><fmt:message key="partials.users.user-roles-dialog.Justification"/></div>
             <div class="setting-field">
                 <div id="user-justification-roles-dialog"></div>
             </div>
             <div class="clear"></div>
         </div>
         <div class="setting">
-            <div class="setting-name">Roles</div>
+            <div class="setting-name"><fmt:message key="partials.users.user-roles-dialog.Roles"/></div>
             <div class="roles-container">
                 <div class="role-container">
-                    <div id="role-admin-checkbox" class="role-checkbox nf-checkbox checkbox-unchecked"></div><div class="role-name">Administrator</div>
+                    <div id="role-admin-checkbox" class="role-checkbox nf-checkbox checkbox-unchecked"></div><div class="role-name"><fmt:message key="partials.users.user-roles-dialog.Administrator"/></div>
                 </div>
                 <div class="role-container">
-                    <div id="role-dfm-checkbox" class="role-checkbox nf-checkbox checkbox-unchecked"></div><div class="role-name">Data Flow Manager</div>
+                    <div id="role-dfm-checkbox" class="role-checkbox nf-checkbox checkbox-unchecked"></div><div class="role-name"><fmt:message key="partials.users.user-roles-dialog.DataFlowManager"/></div>
                 </div>
                 <div class="role-container">
-                    <div id="role-monitor-checkbox" class="role-checkbox nf-checkbox checkbox-unchecked"></div><div class="role-name">Read Only</div>
+                    <div id="role-monitor-checkbox" class="role-checkbox nf-checkbox checkbox-unchecked"></div><div class="role-name"><fmt:message key="partials.users.user-roles-dialog.ReadOnly"/></div>
                 </div>
                 <div class="role-container" style="margin-top: 5px;">
-                    <div id="role-provenance-checkbox" class="role-checkbox nf-checkbox checkbox-unchecked"></div><div class="role-name">Provenance</div>
+                    <div id="role-provenance-checkbox" class="role-checkbox nf-checkbox checkbox-unchecked"></div><div class="role-name"><fmt:message key="partials.users.user-roles-dialog.Provenance"/></div>
                 </div>
                 <div class="role-container" style="margin-top: 5px;">
-                    <div id="role-nifi-checkbox" class="role-checkbox nf-checkbox checkbox-unchecked"></div><div class="role-name">NiFi</div>
+                    <div id="role-nifi-checkbox" class="role-checkbox nf-checkbox checkbox-unchecked"></div><div class="role-name"><fmt:message key="partials.users.user-roles-dialog.NiFi"/></div>
                 </div>
                 <div class="role-container">
-                    <div id="role-proxy-checkbox" class="role-checkbox nf-checkbox checkbox-unchecked"></div><div class="role-name">Proxy</div>
+                    <div id="role-proxy-checkbox" class="role-checkbox nf-checkbox checkbox-unchecked"></div><div class="role-name"><fmt:message key="partials.users.user-roles-dialog.Proxy"/></div>
                 </div>
             </div>
             <div class="clear"></div>

@@ -15,10 +15,11 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="user-group-dialog">
     <div class="dialog-content">
         <div class="setting">
-            <div class="setting-name">Group name</div>
+            <div class="setting-name"><fmt:message key="partials.users.user-group-dialog.GroupName"/></div>
             <div class="setting-field">
                 <input id="group-name" name="group-name" type="text"/>
             </div>

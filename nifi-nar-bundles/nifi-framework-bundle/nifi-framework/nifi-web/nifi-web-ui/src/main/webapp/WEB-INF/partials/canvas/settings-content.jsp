@@ -15,14 +15,16 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="settings">
     <div id="settings-header-text">NiFi Settings</div>
     <div id="settings-container">
         <div id="settings-tabs-container">
             <div id="settings-tabs"></div>
-            <div id="settings-refresh-button" class="pointer" title="Refresh"></div>
+            <fmt:message key="partials.canvas.settings-content.Refresh" var="Refresh"/>
+            <div id="settings-refresh-button" class="pointer" title="${Refresh}"></div>
             <div id="settings-last-refreshed-container">
-                Last updated:&nbsp;<span id="settings-last-refreshed"></span>
+                <fmt:message key="partials.canvas.settings-content.LastUpdated"/><span id="settings-last-refreshed"></span>
             </div>
             <div id="settings-refresh-required-icon" class="hidden"></div>
             <div id="settings-loading-container" class="loading-container"></div>
@@ -34,18 +36,19 @@
             <div id="general-settings-tab-content" class="configuration-tab">
                 <div id="general-settings">
                     <div class="setting">
-                        <div class="setting-name">Data flow name</div>
+                        <div class="setting-name"><fmt:message key="partials.canvas.settings-content.DataFlowName"/></div>
                         <div class="editable setting-field">
                             <input type="text" id="data-flow-title-field" name="data-flow-title" class="setting-input"/>
-                            <span id="archive-flow-link" class="link">Back-up flow</span>
-                            <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="Archives the flow configuration."/>
+                            <span id="archive-flow-link" class="link"><fmt:message key="partials.canvas.settings-content.archive-flow-link"/></span>
+                            <fmt:message key="partials.canvas.settings-content.archive-flow-link.title" var="title_archive_flow_link"/>
+                            <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="${title_archive_flow_link}"/>
                         </div>
                         <div class="read-only setting-field">
                             <span id="read-only-data-flow-title-field"></span>
                         </div>
                     </div>
                     <div class="setting">
-                        <div class="setting-name">Data flow comments</div>
+                        <div class="setting-name"><fmt:message key="partials.canvas.settings-content.DataFlowComments"/></div>
                         <div class="editable setting-field">
                             <textarea id="data-flow-comments-field" name="data-flow-comments" class="setting-input"></textarea>
                         </div>
@@ -55,8 +58,9 @@
                     </div>
                     <div class="setting">
                         <div class="setting-name">
-                            Maximum timer driven thread count
-                            <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="The maximum number of threads for timer driven processors available to the system."/>
+                            <fmt:message key="partials.canvas.settings-content.MaximumTimerDrivenThreadCount"/>
+                            <fmt:message key="partials.canvas.settings-content.MaximumTimerDrivenThreadCount.title" var="title_MaximumTimerDrivenThreadCount"/>
+                            <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="${title_MaximumTimerDrivenThreadCount}"/>
                         </div>
                         <div class="editable setting-field">
                             <input type="text" id="maximum-timer-driven-thread-count-field" class="setting-input"/>
@@ -67,8 +71,9 @@
                     </div>
                     <div class="setting">
                         <div class="setting-name">
-                            Maximum event driven thread count
-                            <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="The maximum number of threads for event driven processors available to the system."/>
+                            <fmt:message key="partials.canvas.settings-content.MaximumEventDrivenThreadCount"/>
+                            <fmt:message key="partials.canvas.settings-content.MaximumEventDrivenThreadCount.title" var="title_MaximumEventDrivenThreadCount"/>
+                            <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="${title_MaximumEventDrivenThreadCount}"/>
                         </div>
                         <div class="editable setting-field">
                             <input type="text" id="maximum-event-driven-thread-count-field" class="setting-input"/>
@@ -78,7 +83,7 @@
                         </div>
                     </div>
                     <div id="settings-buttons" class="editable">
-                        <div id="settings-save" class="button">Apply</div>
+                        <div id="settings-save" class="button"><fmt:message key="partials.canvas.settings-content.Apply"/></div>
                         <div class="clear"></div>
                     </div>
                 </div>

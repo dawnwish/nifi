@@ -15,23 +15,25 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="cluster">
     <div id="cluster-header-and-filter">
-        <div id="cluster-header-text">NiFi Cluster</div>
+        <div id="cluster-header-text"><fmt:message key="partials.cluster.cluster-content.NiFiCluster"/></div>
         <div id="cluster-filter-controls">
             <div id="cluster-filter-container">
                 <input type="text" id="cluster-filter"/>
                 <div id="cluster-filter-type"></div>
             </div>
             <div id="cluster-filter-stats">
-                Displaying&nbsp;<span id="displayed-nodes"></span>&nbsp;of&nbsp;<span id="total-nodes"></span>
+                <fmt:message key="partials.cluster.cluster-content.Displaying"/><span id="displayed-nodes"></span><fmt:message key="partials.cluster.cluster-content.Of"/><span id="total-nodes"></span>
             </div>
         </div>
     </div>
     <div id="cluster-refresh-container">
-        <div id="refresh-button" class="cluster-refresh pointer" title="Refresh"></div>
+        <fmt:message key="partials.cluster.cluster-content.Refresh" var="Refresh"/>
+        <div id="refresh-button" class="cluster-refresh pointer" title="${Refresh}"></div>
         <div id="cluster-last-refreshed-container">
-            Last updated:&nbsp;<span id="cluster-last-refreshed"></span>
+            <fmt:message key="partials.cluster.cluster-content.LastUpdated"/><span id="cluster-last-refreshed"></span>
         </div>
         <div id="cluster-loading-container" class="loading-container"></div>
     </div>

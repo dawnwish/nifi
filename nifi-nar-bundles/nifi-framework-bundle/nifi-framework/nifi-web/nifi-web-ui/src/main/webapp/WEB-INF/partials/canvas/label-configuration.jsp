@@ -15,10 +15,11 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="label-configuration" class="dialog">
     <div>
         <div class="setting" style="margin-top: 5px;">
-            <div class="setting-name">Label Value</div>
+            <div class="setting-name"><fmt:message key="partials.canvas.label-configuration.LabelValue"/></div>
             <div class="setting-field">
                 <textarea cols="30" rows="4" id="label-value" class="setting-input"></textarea>
             </div>
@@ -31,8 +32,8 @@
         </div>
     </div>
     <div id="label-configuration-button-container">
-        <div id="label-configuration-apply" class="button button-normal">Apply</div>
-        <div id="label-configuration-cancel" class="button button-normal">Cancel</div>
+        <div id="label-configuration-apply" class="button button-normal"><fmt:message key="partials.canvas.label-configuration.label-configuration-apply"/></div>
+        <div id="label-configuration-cancel" class="button button-normal"><fmt:message key="partials.canvas.label-configuration.label-configuration-cancel"/></div>
         <div class="clear"></div>
     </div>
 </div>

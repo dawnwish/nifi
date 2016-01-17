@@ -15,6 +15,7 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="new-controller-service-dialog">
     <div class="dialog-content">
         <div id="controller-service-type-filter-controls">
@@ -22,12 +23,12 @@
                 <input type="text" id="controller-service-type-filter"/>
             </div>
             <div id="controller-service-type-filter-status">
-                Displaying&nbsp;<span id="displayed-controller-service-types"></span>&nbsp;of&nbsp;<span id="total-controller-service-types"></span>
+                <fmt:message key="partials.canvas.new-controller-service-dialog.Displaying"/><span id="displayed-controller-service-types"></span><fmt:message key="partials.canvas.new-controller-service-dialog.Of"/><span id="total-controller-service-types"></span>
             </div>
         </div>
         <div id="controller-service-tag-cloud-container">
             <div class="setting">
-                <div class="setting-name">Tags</div>
+                <div class="setting-name"><fmt:message key="partials.canvas.new-controller-service-dialog.Tags"/></div>
                 <div class="setting-field">
                     <div id="controller-service-tag-cloud"></div>
                 </div>
@@ -44,7 +45,7 @@
         </div>
         <div class="clear"></div>
         <div id="controller-service-availability-container" class="hidden">
-            <div class="setting-name availability-label">Available on</div>
+            <div class="setting-name availability-label"><fmt:message key="partials.canvas.new-controller-service-dialog.AvailableOn"/></div>
             <div id="controller-service-availability-combo"></div>
             <div class="clear"></div>
         </div>

@@ -15,21 +15,22 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="fill-color-dialog">
     <div class="dialog-content">
         <div class="setting">
-            <div class="setting-name">Color</div>
+            <div class="setting-name"><fmt:message key="partials.canvas.fill-color-dialog.Color"/></div>
             <div class="setting-field">
                 <input type="text" id="fill-color" value="#FFFFFF"/>
             </div>
-            <div class="setting-name" style="margin-top: 10px;">Value</div>
+            <div class="setting-name" style="margin-top: 10px;"><fmt:message key="partials.canvas.fill-color-dialog.Value"/></div>
             <div class="setting-field">
                 <input type="text" id="fill-color-value" value="#FFFFFF"/>
             </div>
-            <div class="setting-name" style="margin-top: 10px;">Preview</div>
+            <div class="setting-name" style="margin-top: 10px;"><fmt:message key="partials.canvas.fill-color-dialog.Preview"/></div>
             <div class="setting-field">
                 <div id="fill-color-processor-preview">
-                    <div id="fill-color-processor-preview-name">Processor</div>
+                    <div id="fill-color-processor-preview-name"><fmt:message key="partials.canvas.fill-color-dialog.Processor"/></div>
                     <div id="fill-color-processor-preview-icon"></div>
                     <div class="clear"></div>
                     <div id="fill-color-processor-preview-stats">
@@ -38,7 +39,7 @@
                     </div>
                 </div>
                 <div id="fill-color-label-preview">
-                    <div id="fill-color-label-preview-value">Label</div>
+                    <div id="fill-color-label-preview-value"><fmt:message key="partials.canvas.fill-color-dialog.Label"/></div>
                 </div>
             </div>
         </div>

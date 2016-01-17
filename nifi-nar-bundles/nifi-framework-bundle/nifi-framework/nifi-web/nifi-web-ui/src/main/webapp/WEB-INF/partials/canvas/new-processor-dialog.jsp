@@ -15,6 +15,7 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="new-processor-dialog">
     <div class="dialog-content">
         <div id="processor-type-filter-controls">
@@ -22,12 +23,12 @@
                 <input type="text" id="processor-type-filter"/>
             </div>
             <div id="processor-type-filter-status">
-                Displaying&nbsp;<span id="displayed-processor-types"></span>&nbsp;of&nbsp;<span id="total-processor-types"></span>
+                <fmt:message key="partials.canvas.new-processor-dialog.Displaying"/><span id="displayed-processor-types"></span><fmt:message key="partials.canvas.new-processor-dialog.Of"/><span id="total-processor-types"></span>
             </div>
         </div>
         <div id="processor-tag-cloud-container">
             <div class="setting">
-                <div class="setting-name">Tags</div>
+                <div class="setting-name"><fmt:message key="partials.canvas.new-processor-dialog.Tags"/></div>
                 <div class="setting-field">
                     <div id="processor-tag-cloud"></div>
                 </div>

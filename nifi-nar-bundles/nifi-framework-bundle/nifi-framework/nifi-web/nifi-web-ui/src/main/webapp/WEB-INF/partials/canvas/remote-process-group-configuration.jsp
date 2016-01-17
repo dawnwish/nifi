@@ -15,36 +15,38 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="remote-process-group-configuration">
     <div class="dialog-content">
         <div class="setting">
-            <div class="setting-name">Name</div>
+            <div class="setting-name"><fmt:message key="partials.canvas.remote-process-group-configuration.Name"/></div>
             <div class="setting-field">
                 <span id="remote-process-group-name"></span>
             </div>
         </div>
         <div class="setting">
-            <div class="setting-name">Id</div>
+            <div class="setting-name"><fmt:message key="partials.canvas.remote-process-group-configuration.Id"/></div>
             <div class="setting-field">
                 <span id="remote-process-group-id"></span>
             </div>
         </div>
         <div class="setting">
-            <div class="setting-name">URL</div>
+            <div class="setting-name"><fmt:message key="partials.canvas.remote-process-group-configuration.URL"/></div>
             <div class="setting-field">
                 <span id="remote-process-group-url"></span>
             </div>
         </div>
         <div class="setting">
-            <div class="setting-name">Communications timeout</div>
+            <div class="setting-name"><fmt:message key="partials.canvas.remote-process-group-configuration.CommunicationsTimeout"/></div>
             <div class="setting-field">
                 <input type="text" id="remote-process-group-timeout"/>
             </div>
         </div>
         <div class="setting">
             <div class="setting-name">
-                Yield duration
-                <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="When communication with this remote process group fails, it will not be scheduled again until this amount of time elapses."/>
+                <fmt:message key="partials.canvas.remote-process-group-configuration.YieldDuration"/>
+                <fmt:message key="partials.canvas.remote-process-group-configuration.YieldDuration.title" var="title_YieldDuration"/>
+                <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="${title_YieldDuration}"/>
             </div>
             <div class="setting-field">
                 <input type="text" id="remote-process-group-yield-duration"/>

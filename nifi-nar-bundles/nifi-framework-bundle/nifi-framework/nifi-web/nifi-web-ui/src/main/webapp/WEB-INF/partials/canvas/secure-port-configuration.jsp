@@ -15,6 +15,7 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="secure-port-configuration">
     <div class="dialog-content">
         <span id="secure-port-type" class="hidden"></span>
@@ -22,19 +23,19 @@
         <div id="secure-port-configuration-tabs-content">
             <div id="secure-port-settings-tab-content" class="configuration-tab">
                 <div class="secure-port-setting">
-                    <div class="setting-name">Port name</div>
+                    <div class="setting-name"><fmt:message key="partials.canvas.secure-port-configuration.PortName"/></div>
                     <div class="setting-field">
                         <input type="text" id="secure-port-name"/>
                         <div class="port-enabled-container">
                             <div id="secure-port-enabled" class="port-enabled nf-checkbox checkbox-unchecked"></div>
-                            <span> Enabled</span>
+                            <span><fmt:message key="partials.canvas.secure-port-configuration.Enable"/>d</span>
                         </div>
                         <div class="clear"></div>
                     </div>
                 </div>
                 <div class="secure-port-setting">
                     <div class="setting-name">
-                        Id
+                        <fmt:message key="partials.canvas.secure-port-configuration.Id"/>
                     </div>
                     <div class="setting-field">
                         <span id="secure-port-id"></span>
@@ -42,15 +43,16 @@
                 </div>
                 <div id="secure-port-concurrent-task-container" class="secure-port-setting">
                     <div class="setting-name">
-                        Concurrent tasks
-                        <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="The number of tasks that should be concurrently scheduled for this port."/>
+                        <fmt:message key="partials.canvas.secure-port-configuration.ConcurrentTasks"/>
+                        <fmt:message key="partials.canvas.secure-port-configuration.ConcurrentTasks.title" var="title_ConcurrentTasks"/>
+                        <img class="setting-icon icon-info" src="images/iconInfo.png" alt="Info" title="${title_ConcurrentTasks}"/>
                     </div>
                     <div class="setting-field">
                         <input type="text" id="secure-port-concurrent-tasks" class="secure-port-field"></input>
                     </div>
                 </div>
                 <div class="secure-port-setting">
-                    <div class="setting-name">Comments</div>
+                    <div class="setting-name"><fmt:message key="partials.canvas.secure-port-configuration.Comments"/></div>
                     <div class="setting-field">
                         <textarea cols="30" rows="4" id="secure-port-comments" class="secure-port-field"></textarea>
                     </div>
@@ -58,19 +60,19 @@
             </div>
             <div id="secure-port-access-control-tab-content" class="configuration-tab">
                 <div class="secure-port-setting">
-                    <div class="setting-name">Search Users</div>
+                    <div class="setting-name"><fmt:message key="partials.canvas.secure-port-configuration.SearchUsers"/></div>
                     <div class="setting-field">
                         <input type="text" id="secure-port-access-control" class="secure-port-field"/>
                     </div>
                 </div>
                 <div class="secure-port-setting">
-                    <div class="setting-name">Allowed Users</div>
+                    <div class="setting-name"><fmt:message key="partials.canvas.secure-port-configuration.AllowedUsers"/></div>
                     <div class="setting-field allowed-container">
                         <ul id="allowed-users" class="allowed"></ul>
                     </div>
                 </div>
                 <div class="secure-port-setting">
-                    <div class="setting-name">Allowed Groups</div>
+                    <div class="setting-name"><fmt:message key="partials.canvas.secure-port-configuration.AllowedGroups"/></div>
                     <div class="setting-field allowed-container">
                         <ul id="allowed-groups" class="allowed"></ul>
                     </div>

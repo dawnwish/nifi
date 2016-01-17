@@ -15,10 +15,11 @@
   limitations under the License.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div id="history-filter-dialog">
     <div class="dialog-content">
         <div class="setting">
-            <div class="setting-name">Filter</div>
+            <div class="setting-name"><fmt:message key="partials.history.history-filter-dialog.Filter"/></div>
             <div class="setting-field">
                 <div id="history-filter-controls">
                     <input type="text" id="history-filter" class="history-large-input"/>
@@ -30,8 +31,9 @@
         <div class="setting">
             <div class="start-date-setting">
                 <div class="setting-name">
-                    Start date
-                    <img class="icon-info" src="images/iconInfo.png" alt="Info" title="The start date in the format 'mm/dd/yyyy'. Must also specify start time."/>
+                    <fmt:message key="partials.history.history-filter-dialog.StartDate"/>
+                    <fmt:message key="partials.history.history-filter-dialog.StartDate.title" var="title_StartDate"/>
+                    <img class="icon-info" src="images/iconInfo.png" alt="Info" title="${title_StartDate}"/>
                 </div>
                 <div class="setting-field">
                     <input type="text" id="history-filter-start-date" class="history-small-input"/>
@@ -39,8 +41,9 @@
             </div>
             <div class="start-time-setting">
                 <div class="setting-name">
-                    Start time (<span class="timezone"></span>)
-                    <img class="icon-info" src="images/iconInfo.png" alt="Info" title="The start time in the format 'hh:mm:ss'. Must also specify start date."/>
+                    <fmt:message key="partials.history.history-filter-dialog.StartTime"/>(<span class="timezone"></span>)
+                    <fmt:message key="partials.history.history-filter-dialog.StartTime.title" var="title_StartTime"/>
+                    <img class="icon-info" src="images/iconInfo.png" alt="Info" title="${title_StartTime}"/>
                 </div>
                 <div class="setting-field">
                     <input type="text" id="history-filter-start-time" class="history-small-input"/>
@@ -51,8 +54,9 @@
         <div class="setting">
             <div class="end-date-setting">
                 <div class="setting-name">
-                    End date
-                    <img class="icon-info" src="images/iconInfo.png" alt="Info" title="The end date in the format 'mm/dd/yyyy'. Must also specify end time."/>
+                    <fmt:message key="partials.history.history-filter-dialog.EndDate"/>
+                    <fmt:message key="partials.history.history-filter-dialog.EndDate.title" var="title_EndDate"/>
+                    <img class="icon-info" src="images/iconInfo.png" alt="Info" title="${title_EndDate}"/>
                 </div>
                 <div class="setting-field">
                     <input type="text" id="history-filter-end-date" class="history-small-input"/>
@@ -60,8 +64,9 @@
             </div>
             <div class="end-time-setting">
                 <div class="setting-name">
-                    End time (<span class="timezone"></span>)
-                    <img class="icon-info" src="images/iconInfo.png" alt="Info" title="The end time in the format 'hh:mm:ss'. Must also specify end date."/>
+                    <fmt:message key="partials.history.history-filter-dialog.EndTime"/>(<span class="timezone"></span>)
+                    <fmt:message key="partials.history.history-filter-dialog.EndTime.title" var="title_EndTime"/>
+                    <img class="icon-info" src="images/iconInfo.png" alt="Info" title="${title_EndTime}"/>
                 </div>
                 <div class="setting-field">
                     <input type="text" id="history-filter-end-time" class="history-small-input"/>
