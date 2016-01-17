@@ -17,7 +17,7 @@
 nf.Search = (function () {
 
     var config = {
-        search: 'Search',
+        search: nf._.msg('nf-search.Search'),
         urls: {
             search: '../nifi-api/controller/search-results'
         }
@@ -159,7 +159,7 @@ nf.Search = (function () {
                     }).appendTo('body');
                 },
                 close: function (event, ui) {
-                    // set the text to 'Search' and reset the cached term
+                    // set the text to nf._.msg('nf-search.Search') and reset the cached term
                     $(this).searchAutocomplete('reset');
 
                     // remove the glass pane

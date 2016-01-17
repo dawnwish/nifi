@@ -146,7 +146,7 @@ nf.Summary = (function () {
                             dataType: 'json'
                         }).done(function (response) {
                             var aboutDetails = response.about;
-                            var statusTitle = aboutDetails.title + ' Summary';
+                            var statusTitle = nf._.msg('nf-about') + nf._.msg('nf-summary-table.Summary');
 
                             // set the document title and the about title
                             document.title = statusTitle;

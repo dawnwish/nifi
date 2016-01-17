@@ -205,7 +205,7 @@ nf.CanvasUtils = (function () {
                             deferred.resolve();
                         }).fail(function () {
                             nf.Dialog.showOkDialog({
-                                dialogContent: 'Unable to load the group for the specified component.',
+                                dialogContent: nf._.msg('nf-canvas-utils.Message1'),
                                 overlayBackground: false
                             });
                             deferred.reject();
@@ -223,7 +223,7 @@ nf.CanvasUtils = (function () {
                         nf.Actions.show(component);
                     } else {
                         nf.Dialog.showOkDialog({
-                            dialogContent: 'Unable to find the specified component.',
+                            dialogContent: nf._.msg('nf-canvas-utils.Message2'),
                             overlayBackground: false
                         });
                     }
@@ -1145,7 +1145,7 @@ nf.CanvasUtils = (function () {
                 }
             }).fail(function () {
                 nf.Dialog.showOkDialog({
-                    dialogContent: 'Unable to enter the selected group.',
+                    dialogContent: nf._.msg('nf-canvas-utils.Message3'),
                     overlayBackground: false
                 });
             });
@@ -1321,7 +1321,7 @@ nf.CanvasUtils = (function () {
                             // ports in the root group cannot be moved
                             if (nf.Canvas.getParentGroupId() === null) {
                                 nf.Dialog.showOkDialog({
-                                    dialogContent: 'Cannot move Ports out of the root group',
+                                    dialogContent: nf._.msg('nf-canvas-utils.Message4'),
                                     overlayBackground: false
                                 });
                                 portConnectionDeferred.reject();
@@ -1357,7 +1357,7 @@ nf.CanvasUtils = (function () {
                                     // inform the user of the conflicting ports
                                     if (conflictingPorts.length > 0) {
                                         nf.Dialog.showOkDialog({
-                                            dialogContent: 'The following ports are currently connected outside of this group: <b>' + conflictingPorts.join('</b>, <b>') + '</b>',
+                                            dialogContent: nf._.msg('nf-canvas-utils.Message5') + conflictingPorts.join('</b>, <b>') + '</b>',
                                             overlayBackground: false
                                         });
                                         portConnectionDeferred.reject();
@@ -1408,7 +1408,7 @@ nf.CanvasUtils = (function () {
                                 // inform the user of the conflicting ports
                                 if (conflictingPorts.length > 0) {
                                     nf.Dialog.showOkDialog({
-                                        dialogContent: 'The following ports already exist in the target process group: <b>' + conflictingPorts.join('</b>, <b>') + '</b>',
+                                        dialogContent: nf._.msg('nf-canvas-utils.Message6') + conflictingPorts.join('</b>, <b>') + '</b>',
                                         overlayBackground: false
                                     });
                                     portNameDeferred.reject();

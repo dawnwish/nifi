@@ -34,10 +34,10 @@ nf.ClusterSearch = (function () {
         init: function () {
             // configure the view single node dialog
             $('#view-single-node-dialog').modal({
-                headerText: 'Select node',
+                headerText:nf._.msg('nf-cluster-search.SelectNode'),
                 overlayBackground: false,
                 buttons: [{
-                        buttonText: 'Ok',
+                        buttonText:nf._.msg('nf-cluster-search.Ok'),
                         handler: {
                             click: function () {
                                 var clusterSearchTerm = $('#cluster-search-field').val();
@@ -84,7 +84,7 @@ nf.ClusterSearch = (function () {
                             }
                         }
                     }, {
-                        buttonText: 'Cancel',
+                        buttonText:nf._.msg('nf-cluster-search.Cancel'),
                         handler: {
                             click: function () {
                                 // close the dialog
@@ -173,7 +173,7 @@ nf.ClusterSearch = (function () {
                 nf.SummaryTable.loadProcessorSummaryTable();
 
                 // update the header
-                $('#summary-header-text').text('NiFi Summary');
+                $('#summary-header-text').text(nf._.msg('nf-cluster-search.NiFiSumary'));
             });
 
             // show the view links

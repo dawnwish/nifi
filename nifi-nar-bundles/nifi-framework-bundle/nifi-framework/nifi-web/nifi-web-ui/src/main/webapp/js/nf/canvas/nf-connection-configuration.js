@@ -61,7 +61,7 @@ nf.ConnectionConfiguration = (function () {
 
                         // configure the button model
                         $('#connection-configuration').modal('setButtonModel', [{
-                                buttonText: 'Add',
+                                buttonText:nf._.msg('nf-connection-configuration.Add'),
                                 handler: {
                                     click: function () {
                                         // get the selected relationships
@@ -73,7 +73,7 @@ nf.ConnectionConfiguration = (function () {
                                         } else {
                                             // inform users that no relationships were selected
                                             nf.Dialog.showOkDialog({
-                                                dialogContent: 'The connection must have at least one relationship selected.',
+                                                dialogContent: nf._.msg('nf-connection-configuration.Message7'),
                                                 overlayBackground: false
                                             });
                                         }
@@ -83,7 +83,7 @@ nf.ConnectionConfiguration = (function () {
                                     }
                                 }
                             }, {
-                                buttonText: 'Cancel',
+                                buttonText:nf._.msg('nf-connection-configuration.Cancel'),
                                 handler: {
                                     click: function () {
                                         $('#connection-configuration').modal('hide');
@@ -126,7 +126,7 @@ nf.ConnectionConfiguration = (function () {
                 connectionSourceDeferred.done(function () {
                     // configure the button model
                     $('#connection-configuration').modal('setButtonModel', [{
-                            buttonText: 'Add',
+                            buttonText:nf._.msg('nf-connection-configuration.Add'),
                             handler: {
                                 click: function () {
                                     // add the connection
@@ -137,7 +137,7 @@ nf.ConnectionConfiguration = (function () {
                                 }
                             }
                         }, {
-                            buttonText: 'Cancel',
+                            buttonText:nf._.msg('nf-connection-configuration.Cancel'),
                             handler: {
                                 click: function () {
                                     $('#connection-configuration').modal('hide');
@@ -999,7 +999,7 @@ nf.ConnectionConfiguration = (function () {
             nf.Dialog.showOkDialog({
                 dialogContent: nf.Common.formatUnorderedList(errors),
                 overlayBackground: false,
-                headerText: 'Configuration Error'
+                headerText:nf._.msg('nf-connection-configuration.Message6')
             });
             return false;
         } else {
@@ -1078,7 +1078,7 @@ nf.ConnectionConfiguration = (function () {
 
             // initialize the configure connection dialog
             $('#connection-configuration').modal({
-                headerText: 'Configure Connection',
+                headerText:nf._.msg('nf-connection-configuration.Message8'),
                 overlayBackground: true,
                 handler: {
                     close: function () {
@@ -1096,10 +1096,10 @@ nf.ConnectionConfiguration = (function () {
                 tabStyle: 'tab',
                 selectedTabStyle: 'selected-tab',
                 tabs: [{
-                        name: 'Details',
+                        name: nf._.msg('nf-connection-configuration.Detail'),
                         tabContentId: 'connection-details-tab-content'
                     }, {
-                        name: 'Settings',
+                        name: nf._.msg('nf-connection-configuration.Setting'),
                         tabContentId: 'connection-settings-tab-content'
                     }]
             });
@@ -1174,7 +1174,7 @@ nf.ConnectionConfiguration = (function () {
                 $('#connection-configuration-tabs').find('li:first').click();
 
                 // configure the header and show the dialog
-                $('#connection-configuration').modal('setHeaderText', 'Create Connection').modal('show');
+                $('#connection-configuration').modal('setHeaderText', nf._.msg('nf-connection-configuration.CreateConnection')).modal('show');
 
                 // add the ellipsis if necessary
                 $('#connection-configuration div.relationship-name').ellipsis();
@@ -1285,7 +1285,7 @@ nf.ConnectionConfiguration = (function () {
 
                     // configure the button model
                     $('#connection-configuration').modal('setButtonModel', [{
-                            buttonText: 'Apply',
+                            buttonText:nf._.msg('nf-connection-configuration.Apply'),
                             handler: {
                                 click: function () {
                                     // get the selected relationships
@@ -1303,7 +1303,7 @@ nf.ConnectionConfiguration = (function () {
                                         } else {
                                             // inform users that no relationships were selected and the source is a processor
                                             nf.Dialog.showOkDialog({
-                                                dialogContent: 'The connection must have at least one relationship selected.',
+                                                dialogContent: nf._.msg('nf-connection-configuration.Message7'),
                                                 overlayBackground: false
                                             });
 
@@ -1324,7 +1324,7 @@ nf.ConnectionConfiguration = (function () {
                                 }
                             }
                         }, {
-                            buttonText: 'Cancel',
+                            buttonText:nf._.msg('nf-connection-configuration.Cancel'),
                             handler: {
                                 click: function () {
                                     // hide the dialog
@@ -1340,7 +1340,7 @@ nf.ConnectionConfiguration = (function () {
                     $('#connection-configuration-tabs').find('li:first').click();
 
                     // show the details dialog
-                    $('#connection-configuration').modal('setHeaderText', 'Configure Connection').modal('show');
+                    $('#connection-configuration').modal('setHeaderText', nf._.msg('nf-connection-configuration.Message8')).modal('show');
 
                     // add the ellipsis if necessary
                     $('#connection-configuration div.relationship-name').ellipsis();

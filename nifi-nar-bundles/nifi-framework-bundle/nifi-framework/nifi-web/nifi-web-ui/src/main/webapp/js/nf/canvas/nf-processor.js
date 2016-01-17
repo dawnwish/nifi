@@ -241,7 +241,7 @@ nf.Processor = (function () {
                                 'y': 4,
                                 'class': 'processor-stats-label'
                             })
-                            .text('In');
+                            .text(nf._.msg('nf-processor.In'));
 
                     // read/write label
                     processorStatsLabel.append('text')
@@ -252,7 +252,7 @@ nf.Processor = (function () {
                                 'y': 17,
                                 'class': 'processor-stats-label'
                             })
-                            .text('Read/Write');
+                            .text(nf._.msg('nf-processor.ReadWrite'));
 
                     // out label
                     processorStatsLabel.append('text')
@@ -263,7 +263,7 @@ nf.Processor = (function () {
                                 'y': 30,
                                 'class': 'processor-stats-label'
                             })
-                            .text('Out');
+                            .text(nf._.msg('nf-processor.Out'));
 
                     // tasks/time label
                     processorStatsLabel.append('text')
@@ -274,7 +274,7 @@ nf.Processor = (function () {
                                 'y': 43,
                                 'class': 'processor-stats-label'
                             })
-                            .text('Tasks/Time');
+                            .text(nf._.msg('nf-processor.TasksTime'));
 
                     // stats value container
                     var processorStatsValue = details.append('g')

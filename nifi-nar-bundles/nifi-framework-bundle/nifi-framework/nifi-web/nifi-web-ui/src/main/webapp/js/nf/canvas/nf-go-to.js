@@ -410,11 +410,11 @@ nf.GoTo = (function () {
 
                 // ensure there are upstream components
                 if ($('#connections-container').is(':empty')) {
-                    $('#connections-container').html('<span class="unset">No upstream components</span>');
+                    $('#connections-container').html('<span class="unset">'+nf._.msg('nf-go-to.Message1')+'</span>');
                 }
 
                 // show the upstream dialog
-                $('#connections-dialog').modal('setHeaderText', 'Upstream Connections').modal('show');
+                $('#connections-dialog').modal('setHeaderText', nf._.msg('nf-go-to.UpstreamConnections')).modal('show');
             }).fail(nf.Common.handleAjaxError);
         },
         
@@ -449,11 +449,11 @@ nf.GoTo = (function () {
 
                 // ensure there are downstream components
                 if ($('#connections-container').is(':empty')) {
-                    $('#connections-container').html('<span class="unset">No downstream components</span>');
+                    $('#connections-container').html('<span class="unset">'+nf._.msg('nf-go-to.Message2')+'</span>');
                 }
 
                 // show the downstream dialog
-                $('#connections-dialog').modal('setHeaderText', 'Downstream Connections').modal('show');
+                $('#connections-dialog').modal('setHeaderText', nf._.msg('nf-go-to.DownstreamConnections')).modal('show');
             }).fail(nf.Common.handleAjaxError);
         },
         
@@ -488,7 +488,7 @@ nf.GoTo = (function () {
 
                 // ensure there are upstream components
                 if ($('#connections-container').is(':empty')) {
-                    $('#connections-container').html('<span class="unset">No upstream components</span>');
+                    $('#connections-container').html('<span class="unset">'+nf._.msg('nf-go-to.Message1')+'</span>');
                 }
 
                 // show the dialog

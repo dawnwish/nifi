@@ -26,7 +26,7 @@ nf.ProvenanceTable = (function () {
         maxResults: 1000,
         defaultStartTime: '00:00:00',
         defaultEndTime: '23:59:59',
-        filterText: 'Filter',
+        filterText:nf._.msg('nf-provenance-table.Filter'),
         styles: {
             filterList: 'provenance-filter-list',
             hidden: 'hidden'
@@ -67,6 +67,16 @@ nf.ProvenanceTable = (function () {
                 deferred.resolve();
             }
         }).promise();
+    };
+
+    /**
+     * Returns whether a content viewer has been configured.
+     * 
+     * @returns {boolean}
+     */
+    var isContentViewConfigured = function () {
+        var contentViewerUrl = $('#nifi-content-viewer-url').text();
+        return !nf.Common.isBlank(contentViewerUrl);
     };
 
     /**
@@ -140,22 +150,22 @@ nf.ProvenanceTable = (function () {
             tabStyle: 'tab',
             selectedTabStyle: 'selected-tab',
             tabs: [{
-                    name: 'Details',
+                    name: nf._.msg('nf-provenance-table.Details'),
                     tabContentId: 'event-details-tab-content'
                 }, {
-                    name: 'Attributes',
+                    name: nf._.msg('nf-provenance-table.Attributes'),
                     tabContentId: 'attributes-tab-content'
                 }, {
-                    name: 'Content',
+                    name: nf._.msg('nf-provenance-table.Content'),
                     tabContentId: 'content-tab-content'
                 }]
         });
 
         $('#event-details-dialog').modal({
-            headerText: 'Provenance Event',
+            headerText:nf._.msg('nf-provenance-table.ProvenanceEvent'),
             overlayBackground: false,
             buttons: [{
-                    buttonText: 'Ok',
+                    buttonText:nf._.msg('nf-provenance-table.Ok'),
                     handler: {
                         click: function () {
                             $('#event-details-dialog').modal('hide');
@@ -196,7 +206,7 @@ nf.ProvenanceTable = (function () {
         });
 
         // if a content viewer url is specified, use it
-        if (nf.Common.isContentViewConfigured()) {
+        if (isContentViewConfigured()) {
             // input view
             $('#input-content-view').on('click', function () {
                 viewContent('input');
@@ -229,7 +239,7 @@ nf.ProvenanceTable = (function () {
                     dataType: 'json'
                 }).done(function (response) {
                     nf.Dialog.showOkDialog({
-                        dialogContent: 'Successfully submitted replay request.',
+                        dialogContent: nf._.msg('nf-provenance-table.Message1'),
                         overlayBackground: false
                     });
                 }).fail(nf.Common.handleAjaxError);
@@ -281,7 +291,7 @@ nf.ProvenanceTable = (function () {
 
                 // create the searchable options
                 var searchableOptions = [{
-                        text: 'cluster',
+                        text:nf._.msg('nf-provenance-table.Cluster'),
                         value: null
                     }];
 
@@ -312,10 +322,10 @@ nf.ProvenanceTable = (function () {
 
         // configure the search dialog
         $('#provenance-search-dialog').modal({
-            headerText: 'Search Events',
+            headerText:nf._.msg('nf-provenance-table.Message2'),
             overlayBackground: false,
             buttons: [{
-                    buttonText: 'Search',
+                    buttonText:nf._.msg('nf-provenance-table.Search'),
                     handler: {
                         click: function () {
                             $('#provenance-search-dialog').modal('hide');
@@ -371,7 +381,7 @@ nf.ProvenanceTable = (function () {
                         }
                     }
                 }, {
-                    buttonText: 'Cancel',
+                    buttonText:nf._.msg('nf-provenance-table.Cancel'),
                     handler: {
                         click: function () {
                             $('#provenance-search-dialog').modal('hide');
@@ -403,7 +413,7 @@ nf.ProvenanceTable = (function () {
 
         // initialize the dialog
         $('#provenance-query-dialog').modal({
-            headerText: 'Searching provenance events...',
+            headerText:nf._.msg('nf-provenance-table.Message3'),
             overlayBackground: false,
             handler: {
                 close: function () {
@@ -479,20 +489,20 @@ nf.ProvenanceTable = (function () {
 
         // filter options
         var filterOptions = [{
-                text: 'by component name',
+                text:nf._.msg('nf-provenance-table.ByComponentName'),
                 value: 'componentName'
             }, {
-                text: 'by component type',
+                text:nf._.msg('nf-provenance-table.ByComponentType'),
                 value: 'componentType'
             }, {
-                text: 'by type',
+                text:nf._.msg('nf-provenance-table.ByType'),
                 value: 'eventType'
             }];
 
         // if clustered, allowing filtering by node id
         if (isClustered) {
             filterOptions.push({
-                text: 'by node',
+                text:nf._.msg('nf-provenance-table.ByNode'),
                 value: 'clusterNodeAddress'
             });
         }
@@ -530,7 +540,7 @@ nf.ProvenanceTable = (function () {
             // if we are clustered reset the selected option
             if (isClustered) {
                 $('#provenance-search-location').combo('setSelectedOption', {
-                    text: 'cluster'
+                    text:nf._.msg('nf-provenance-table.Cluster')
                 });
             }
 
@@ -556,7 +566,7 @@ nf.ProvenanceTable = (function () {
 
         // define a custom formatter for the more details column
         var moreDetailsFormatter = function (row, cell, value, columnDef, dataContext) {
-            return '<img src="images/iconDetails.png" title="View Details" class="pointer show-event-details" style="margin-top: 4px;"/>';
+            return '<img src="images/iconDetails.png" title='+nf._.msg('nf-provenance-table.ViewDetail')+' class="pointer show-event-details" style="margin-top: 4px;"/>';
         };
 
         // define how general values are formatted
@@ -573,12 +583,12 @@ nf.ProvenanceTable = (function () {
 
             // conditionally include the cluster node id
             if (nf.Common.SUPPORTS_SVG) {
-                markup += '<img src="images/iconLineage.png" title="Show Lineage" class="pointer show-lineage" style="margin-top: 2px;"/>';
+                markup += '<img src="images/iconLineage.png" title='+nf._.msg('nf-provenance-table.ShowLineage')+' class="pointer show-lineage" style="margin-top: 2px;"/>';
             }
 
             // conditionally support going to the component
             if (isInShell && nf.Common.isDefinedAndNotNull(dataContext.groupId)) {
-                markup += '&nbsp;<img src="images/iconGoTo.png" title="Go To" class="pointer go-to" style="margin-top: 2px;"/>';
+                markup += '&nbsp;<img src="images/iconGoTo.png" title='+nf._.msg('nf-provenance-table.GoTo')+' class="pointer go-to" style="margin-top: 2px;"/>';
             }
 
             return markup;
@@ -587,17 +597,17 @@ nf.ProvenanceTable = (function () {
         // initialize the provenance table
         var provenanceColumns = [
             {id: 'moreDetails', name: '&nbsp;', sortable: false, resizable: false, formatter: moreDetailsFormatter, width: 50, maxWidth: 50},
-            {id: 'eventTime', name: 'Date/Time', field: 'eventTime', sortable: true, defaultSortAsc: false, resizable: true},
-            {id: 'eventType', name: 'Type', field: 'eventType', sortable: true, resizable: true},
-            {id: 'flowFileUuid', name: 'FlowFile Uuid', field: 'flowFileUuid', sortable: true, resizable: true},
-            {id: 'fileSize', name: 'Size', field: 'fileSize', sortable: true, defaultSortAsc: false, resizable: true},
-            {id: 'componentName', name: 'Component Name', field: 'componentName', sortable: true, resizable: true, formatter: valueFormatter},
-            {id: 'componentType', name: 'Component Type', field: 'componentType', sortable: true, resizable: true}
+            {id: 'eventTime', name: nf._.msg('nf-provenance-table.DateTime'), field: 'eventTime', sortable: true, defaultSortAsc: false, resizable: true},
+            {id: 'eventType', name: nf._.msg('nf-provenance-table.Type'), field: 'eventType', sortable: true, resizable: true},
+            {id: 'flowFileUuid', name: nf._.msg('nf-provenance-table.FlowFileUuid'), field: 'flowFileUuid', sortable: true, resizable: true},
+            {id: 'fileSize', name: nf._.msg('nf-provenance-table.Size'), field: 'fileSize', sortable: true, defaultSortAsc: false, resizable: true},
+            {id: 'componentName', name: nf._.msg('nf-provenance-table.ComponentName'), field: 'componentName', sortable: true, resizable: true, formatter: valueFormatter},
+            {id: 'componentType', name: nf._.msg('nf-provenance-table.ComponentType'), field: 'componentType', sortable: true, resizable: true}
         ];
 
         // conditionally show the cluster node identifier
         if (isClustered) {
-            provenanceColumns.push({id: 'clusterNodeAddress', name: 'Node', field: 'clusterNodeAddress', sortable: true, resizable: true});
+            provenanceColumns.push({id: 'clusterNodeAddress', name: nf._.msg('nf-provenance-table.Node'), field: 'clusterNodeAddress', sortable: true, resizable: true});
         }
 
         // conditionally show the action column
@@ -882,20 +892,20 @@ nf.ProvenanceTable = (function () {
 
             // update the filter message based on the request
             if (isBlankQuery(provenanceRequest)) {
-                var message = 'Showing the most recent ';
+                var message = nf._.msg('nf-provenance-table.Message');
                 if (provenanceResults.totalCount > config.maxResults) {
-                    message += (nf.Common.formatInteger(config.maxResults) + ' of ' + provenanceResults.total + ' events, please refine the search.');
+                    message += (nf.Common.formatInteger(config.maxResults) + nf._.msg('nf-provenance-table.Of') + provenanceResults.total + nf._.msg('nf-provenance-table.Message4'));
                 } else {
-                    message += ('events.');
+                    message += (nf._.msg('nf-provenance-table.Events'));
                 }
                 $('#provenance-query-message').text(message);
                 $('#clear-provenance-search').hide();
             } else {
-                var message = 'Showing ';
+                var message = nf._.msg('nf-provenance-table.Showing');
                 if (provenanceResults.totalCount > config.maxResults) {
-                    message += (nf.Common.formatInteger(config.maxResults) + ' of ' + provenanceResults.total + ' events that match the specified query, please refine the search.');
+                    message += (nf.Common.formatInteger(config.maxResults) + nf._.msg('nf-provenance-table.Of') + provenanceResults.total + nf._.msg('nf-provenance-table.Message5'));
                 } else {
-                    message += ('the events that match the specified query.');
+                    message += (nf._.msg('nf-provenance-table.Message6'));
                 }
                 $('#provenance-query-message').text(message);
                 $('#clear-provenance-search').show();
@@ -1017,7 +1027,7 @@ nf.ProvenanceTable = (function () {
 
             // show the 'searching...' dialog
             $('#provenance-query-dialog').modal('setButtonModel', [{
-                    buttonText: 'Cancel',
+                    buttonText:nf._.msg('nf-provenance-table.Cancel'),
                     handler: {
                         click: function () {
                             cancelled = true;
@@ -1156,7 +1166,7 @@ nf.ProvenanceTable = (function () {
                         field.text(nf.Common.formatDuration(value));
                     }
                 } else {
-                    field.html('<span class="unset">No value set</span>');
+                    field.html('<span class="unset">'+nf._.msg('nf-provenance-table.NoValueSet')+'</span>');
                 }
             };
 
@@ -1264,64 +1274,100 @@ nf.ProvenanceTable = (function () {
                 if (nf.Common.isDefinedAndNotNull(value)) {
                     element.removeClass('unset').text(value);
                 } else {
-                    element.addClass('unset').text('No value set');
+                    element.addClass('unset').text(nf._.msg('nf-provenance-table.NoValueSet'));
                 }
             };
 
             // content
-            $('#input-content-header').text('Input Claim');
-            formatContentValue($('#input-content-container'), event.inputContentClaimContainer);
-            formatContentValue($('#input-content-section'), event.inputContentClaimSection);
-            formatContentValue($('#input-content-identifier'), event.inputContentClaimIdentifier);
-            formatContentValue($('#input-content-offset'), event.inputContentClaimOffset);
-            formatContentValue($('#input-content-bytes'), event.inputContentClaimFileSizeBytes);
+            if (event.contentEqual === true) {
+                $('#output-content-details').hide();
 
-            // input content file size
-            var inputContentSize = $('#input-content-size');
-            formatContentValue(inputContentSize, event.inputContentClaimFileSize);
-            if (nf.Common.isDefinedAndNotNull(event.inputContentClaimFileSize)) {
-                // over the default tooltip with the actual byte count
-                inputContentSize.attr('title', nf.Common.formatInteger(event.inputContentClaimFileSizeBytes) + ' bytes');
-            }
+                $('#input-content-header').text(nf._.msg('nf-provenance-table.Claim'));
+                formatContentValue($('#input-content-container'), event.inputContentClaimContainer);
+                formatContentValue($('#input-content-section'), event.inputContentClaimSection);
+                formatContentValue($('#input-content-identifier'), event.inputContentClaimIdentifier);
+                formatContentValue($('#input-content-offset'), event.inputContentClaimOffset);
+                formatContentValue($('#input-content-bytes'), event.inputContentClaimFileSizeBytes);
 
-            formatContentValue($('#output-content-container'), event.outputContentClaimContainer);
-            formatContentValue($('#output-content-section'), event.outputContentClaimSection);
-            formatContentValue($('#output-content-identifier'), event.outputContentClaimIdentifier);
-            formatContentValue($('#output-content-offset'), event.outputContentClaimOffset);
-            formatContentValue($('#output-content-bytes'), event.outputContentClaimFileSizeBytes);
+                // input content file size
+                var inputContentSize = $('#input-content-size');
+                formatContentValue(inputContentSize, event.inputContentClaimFileSize);
+                if (nf.Common.isDefinedAndNotNull(event.inputContentClaimFileSize)) {
+                    // over the default tooltip with the actual byte count
+                    inputContentSize.attr('title', nf.Common.formatInteger(event.inputContentClaimFileSizeBytes) + ' bytes');
+                }
 
-            // output content file size
-            var outputContentSize = $('#output-content-size');
-            formatContentValue(outputContentSize, event.outputContentClaimFileSize);
-            if (nf.Common.isDefinedAndNotNull(event.outputContentClaimFileSize)) {
-                // over the default tooltip with the actual byte count
-                outputContentSize.attr('title', nf.Common.formatInteger(event.outputContentClaimFileSizeBytes) + ' bytes');
-            }
+                $('#output-content-download').hide();
 
-            if (event.inputContentAvailable === true) {
-                $('#input-content-download').show();
+                if (event.inputContentAvailable === true) {
+                    $('#input-content-download').show();
 
-                if (nf.Common.isContentViewConfigured()) {
-                    $('#input-content-view').show();
+                    if (isContentViewConfigured()) {
+                        $('#input-content-view').show();
+                    } else {
+                        $('#input-content-view').hide();
+                    }
                 } else {
+                    $('#input-content-download').hide();
                     $('#input-content-view').hide();
                 }
             } else {
-                $('#input-content-download').hide();
-                $('#input-content-view').hide();
-            }
+                $('#output-content-details').show();
 
-            if (event.outputContentAvailable === true) {
-                $('#output-content-download').show();
+                $('#input-content-header').text(nf._.msg('nf-provenance-table.InputClain'));
+                formatContentValue($('#input-content-container'), event.inputContentClaimContainer);
+                formatContentValue($('#input-content-section'), event.inputContentClaimSection);
+                formatContentValue($('#input-content-identifier'), event.inputContentClaimIdentifier);
+                formatContentValue($('#input-content-offset'), event.inputContentClaimOffset);
+                formatContentValue($('#input-content-bytes'), event.inputContentClaimFileSizeBytes);
 
-                if (nf.Common.isContentViewConfigured()) {
-                    $('#output-content-view').show();
+                // input content file size
+                var inputContentSize = $('#input-content-size');
+                formatContentValue(inputContentSize, event.inputContentClaimFileSize);
+                if (nf.Common.isDefinedAndNotNull(event.inputContentClaimFileSize)) {
+                    // over the default tooltip with the actual byte count
+                    inputContentSize.attr('title', nf.Common.formatInteger(event.inputContentClaimFileSizeBytes) + ' bytes');
+                }
+
+                formatContentValue($('#output-content-container'), event.outputContentClaimContainer);
+                formatContentValue($('#output-content-section'), event.outputContentClaimSection);
+                formatContentValue($('#output-content-identifier'), event.outputContentClaimIdentifier);
+                formatContentValue($('#output-content-offset'), event.outputContentClaimOffset);
+                formatContentValue($('#output-content-bytes'), event.outputContentClaimFileSizeBytes);
+
+                // output content file size
+                var outputContentSize = $('#output-content-size');
+                formatContentValue(outputContentSize, event.outputContentClaimFileSize);
+                if (nf.Common.isDefinedAndNotNull(event.outputContentClaimFileSize)) {
+                    // over the default tooltip with the actual byte count
+                    outputContentSize.attr('title', nf.Common.formatInteger(event.outputContentClaimFileSizeBytes) + ' bytes');
+                }
+
+                if (event.inputContentAvailable === true) {
+                    $('#input-content-download').show();
+
+                    if (isContentViewConfigured()) {
+                        $('#input-content-view').show();
+                    } else {
+                        $('#input-content-view').hide();
+                    }
                 } else {
+                    $('#input-content-download').hide();
+                    $('#input-content-view').hide();
+                }
+
+                if (event.outputContentAvailable === true) {
+                    $('#output-content-download').show();
+
+                    if (isContentViewConfigured()) {
+                        $('#output-content-view').show();
+                    } else {
+                        $('#output-content-view').hide();
+                    }
+                } else {
+                    $('#output-content-download').hide();
                     $('#output-content-view').hide();
                 }
-            } else {
-                $('#output-content-download').hide();
-                $('#output-content-view').hide();
             }
 
             if (nf.Common.isDFM()) {

@@ -56,16 +56,16 @@ nf.ProcessorDetails = (function () {
                 tabStyle: 'tab',
                 selectedTabStyle: 'selected-tab',
                 tabs: [{
-                        name: 'Settings',
+                        name: nf._.msg('nf-processor-details.Settings'),
                         tabContentId: 'details-standard-settings-tab-content'
                     }, {
-                        name: 'Scheduling',
+                        name: nf._.msg('nf-processor-details.Scheduling'),
                         tabContentId: 'details-scheduling-tab-content'
                     }, {
-                        name: 'Properties',
+                        name: nf._.msg('nf-processor-details.Properties'),
                         tabContentId: 'details-processor-properties-tab-content'
                     }, {
-                        name: 'Comments',
+                        name: nf._.msg('nf-processor-details.Comments'),
                         tabContentId: 'details-processor-comments-tab-content'
                     }],
                 select: function () {
@@ -87,7 +87,7 @@ nf.ProcessorDetails = (function () {
 
             // configure the processor details dialog
             $('#processor-details').modal({
-                headerText: 'Processor Details',
+                headerText:nf._.msg('nf-processor-details.ProcessorDetails'),
                 overlayBackground: overlayBackground,
                 handler: {
                     close: function () {
@@ -219,7 +219,7 @@ nf.ProcessorDetails = (function () {
                 $('#read-only-processor-properties').propertytable('loadProperties', processor.config.properties, processor.config.descriptors, history.propertyHistory);
 
                 var buttons = [{
-                        buttonText: 'Ok',
+                        buttonText:nf._.msg('nf-processor-details.Ok'),
                         handler: {
                             click: function () {
                                 // hide the dialog
@@ -231,7 +231,7 @@ nf.ProcessorDetails = (function () {
                 // determine if we should show the advanced button
                 if (nf.Common.isDefinedAndNotNull(nf.CustomUi) && nf.Common.isDefinedAndNotNull(processor.config.customUiUrl) && processor.config.customUiUrl !== '') {
                     buttons.push({
-                        buttonText: 'Advanced',
+                        buttonText:nf._.msg('nf-processor-details.Advanced'),
                         handler: {
                             click: function () {
                                 // reset state and close the dialog manually to avoid hiding the faded background

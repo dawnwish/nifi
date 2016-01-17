@@ -23,7 +23,7 @@ nf.TemplatesTable = (function () {
      * Configuration object used to hold a number of configuration items.
      */
     var config = {
-        filterText: 'Filter',
+        filterText:nf._.msg('nf-templates-table.Filter'),
         styles: {
             filterList: 'templates-filter-list'
         },
@@ -64,7 +64,7 @@ nf.TemplatesTable = (function () {
     var promptToDeleteTemplate = function (template) {
         // prompt for deletion
         nf.Dialog.showYesNoDialog({
-            dialogContent: 'Delete template \'' + nf.Common.escapeHtml(template.name) + '\'?',
+            dialogContent: nf._.msg('nf-templates-table.Message1') + nf.Common.escapeHtml(template.name) + '\'?',
             overlayBackground: false,
             yesHandler: function () {
                 deleteTemplate(template.id);
@@ -171,10 +171,10 @@ nf.TemplatesTable = (function () {
             // filter type
             $('#templates-filter-type').combo({
                 options: [{
-                        text: 'by name',
+                        text:nf._.msg('nf-templates-table.ByName'),
                         value: 'name'
                     }, {
-                        text: 'by description',
+                        text:nf._.msg('nf-templates-table.ByDescription'),
                         value: 'description'
                     }],
                 select: function (option) {
@@ -203,16 +203,16 @@ nf.TemplatesTable = (function () {
 
                 // all DFMs to remove templates
                 if (nf.Common.isDFM()) {
-                    markup += '&nbsp;<img src="images/iconDelete.png" title="Remove Template" class="pointer prompt-to-delete-template" style="margin-top: 2px;"/>';
+                    markup += '&nbsp;<img src="images/iconDelete.png" title='+nf._.msg('nf-templates-table.RemovieTemplate')+' class="pointer prompt-to-delete-template" style="margin-top: 2px;"/>';
                 }
                 return markup;
             };
 
             // initialize the templates table
             var templatesColumns = [
-                {id: 'timestamp', name: 'Date/Time', field: 'timestamp', sortable: true, defaultSortAsc: false, resizable: false, formatter: valueFormatter, width: 225, maxWidth: 225},
-                {id: 'name', name: 'Name', field: 'name', sortable: true, resizable: true},
-                {id: 'description', name: 'Description', field: 'description', sortable: true, resizable: true, formatter: valueFormatter},
+                {id: 'timestamp', name: nf._.msg('nf-templates-table.DateTime'), field: 'timestamp', sortable: true, defaultSortAsc: false, resizable: false, formatter: valueFormatter, width: 225, maxWidth: 225},
+                {id: 'name', name: nf._.msg('nf-templates-table.Name'), field: 'name', sortable: true, resizable: true},
+                {id: 'description', name: nf._.msg('nf-templates-table.Description'), field: 'description', sortable: true, resizable: true, formatter: valueFormatter},
                 {id: 'actions', name: '&nbsp;', sortable: false, resizable: false, formatter: actionFormatter, width: 100, maxWidth: 100}
             ];
             var templatesOptions = {

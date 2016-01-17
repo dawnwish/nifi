@@ -553,7 +553,7 @@ nf.Connection = (function () {
                                 var destinationComponentId = nf.CanvasUtils.getConnectionDestinationComponentId(d.component);
                                 if (sourceComponentId === destinationComponentId && d.component.bends.length <= 2) {
                                     nf.Dialog.showOkDialog({
-                                        dialogContent: 'Looping connections must have at least two bend points.',
+                                        dialogContent: nf._.msg('nf-connection.Message1'),
                                         overlayBackground: false
                                     });
                                     return;
@@ -661,7 +661,7 @@ nf.Connection = (function () {
                                         'x': 0,
                                         'y': 10
                                     })
-                                    .text('From');
+                                    .text(nf._.msg('nf-connection.From'));
 
                             connectionFrom.append('text')
                                     .attr({
@@ -741,7 +741,7 @@ nf.Connection = (function () {
                                         'x': 0,
                                         'y': 10
                                     })
-                                    .text('To');
+                                    .text(nf._.msg('nf-connection.To'));
 
                             connectionTo.append('text')
                                     .attr({
@@ -823,7 +823,7 @@ nf.Connection = (function () {
                                         'x': 0,
                                         'y': 10
                                     })
-                                    .text('Name');
+                                    .text(nf._.msg('nf-connection.Name'));
 
                             connectionName.append('text')
                                     .attr({
@@ -879,7 +879,7 @@ nf.Connection = (function () {
                                     'x': 0,
                                     'y': 10
                                 })
-                                .text('Queued');
+                                .text(nf._.msg('nf-connection.Queued'));
 
                         queued.append('text')
                             .attr({

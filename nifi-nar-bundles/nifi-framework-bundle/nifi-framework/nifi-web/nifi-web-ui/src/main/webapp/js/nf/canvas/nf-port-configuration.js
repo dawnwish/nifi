@@ -24,10 +24,10 @@ nf.PortConfiguration = (function () {
      */
     var initPortConfigurationDialog = function () {
         $('#port-configuration').modal({
-            headerText: 'Configure Port',
+            headerText:nf._.msg('nf-port-configuration.ConfigurePort'),
             overlayBackground: true,
             buttons: [{
-                    buttonText: 'Apply',
+                    buttonText:nf._.msg('nf-port-configuration.Apply'),
                     handler: {
                         click: function () {
                             var revision = nf.Client.getRevision();
@@ -94,7 +94,7 @@ nf.PortConfiguration = (function () {
                                     nf.Dialog.showOkDialog({
                                         dialogContent: content,
                                         overlayBackground: false,
-                                        headerText: 'Configuration Error'
+                                        headerText:nf._.msg('nf-port-configuration.ConfigurationError')
                                     });
                                 } else {
                                     // close the details panel
@@ -107,7 +107,7 @@ nf.PortConfiguration = (function () {
                         }
                     }
                 }, {
-                    buttonText: 'Cancel',
+                    buttonText:nf._.msg('nf-port-configuration.Cancel'),
                     handler: {
                         click: function () {
                             $('#port-configuration').modal('hide');

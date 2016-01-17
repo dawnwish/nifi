@@ -63,7 +63,7 @@ nf.Templates = (function () {
      * Initializes the templates table.
      */
     var initializeTemplatesPage = function () {
-        var selectStatusMessage = 'Select template to import';
+        var selectStatusMessage = nf._.msg('nf-templates-table.Message');
 
         // define mouse over event for the refresh button
         nf.Common.addHoverEffect('#refresh-button', 'button-refresh', 'button-refresh-hover').click(function () {
@@ -226,7 +226,7 @@ nf.Templates = (function () {
                             dataType: 'json'
                         }).done(function (response) {
                             var aboutDetails = response.about;
-                            var templatesTitle = aboutDetails.title + ' Templates';
+                            var templatesTitle = nf._.msg('nf-about') + nf._.msg('nf-templates-table.Templates');
 
                             // set the document title and the about title
                             document.title = templatesTitle;

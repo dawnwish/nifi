@@ -210,7 +210,7 @@ nf.Actions = (function () {
                     window.open(encodeURI(uri));
                 } else {
                     nf.Dialog.showOkDialog({
-                        dialogContent: 'No target URI defined.'
+                        dialogContent: nf._.msg('nf-actions.NoTargetURIDefined')
                     });
                 }
             }
@@ -403,7 +403,7 @@ nf.Actions = (function () {
 
             if (componentsToEnable.empty()) {
                 nf.Dialog.showOkDialog({
-                    dialogContent: 'No eligible components are selected. Please select the components to be enabled and ensure they are no longer running.',
+                    dialogContent: nf._.msg('nf-actions.Message1'),
                     overlayBackground: true
                 });
             } else {
@@ -442,7 +442,7 @@ nf.Actions = (function () {
 
             if (componentsToDisable.empty()) {
                 nf.Dialog.showOkDialog({
-                    dialogContent: 'No eligible components are selected. Please select the components to be disabled and ensure they are no longer running.',
+                    dialogContent: nf._.msg('nf-actions.Message2'),
                     overlayBackground: true
                 });
             } else {
@@ -503,7 +503,7 @@ nf.Actions = (function () {
                 // ensure there are startable components selected
                 if (componentsToStart.empty()) {
                     nf.Dialog.showOkDialog({
-                        dialogContent: 'No eligible components are selected. Please select the components to be started and ensure they are no longer running.',
+                        dialogContent: nf._.msg('nf-actions.Message3'),
                         overlayBackground: true
                     });
                 } else {
@@ -566,7 +566,7 @@ nf.Actions = (function () {
                 // ensure there are some component to stop
                 if (componentsToStop.empty()) {
                     nf.Dialog.showOkDialog({
-                        dialogContent: 'No eligible components are selected. Please select the components to be stopped.',
+                        dialogContent: nf._.msg('nf-actions.Message4'),
                         overlayBackground: true
                     });
                 } else {
@@ -772,7 +772,7 @@ nf.Actions = (function () {
         'delete': function (selection) {
             if (nf.Common.isUndefined(selection) || selection.empty()) {
                 nf.Dialog.showOkDialog({
-                    dialogContent: 'No eligible components are selected. Please select the components to be deleted.',
+                    dialogContent: nf._.msg('nf-actions.Message5'),
                     overlayBackground: true
                 });
             } else {
@@ -888,11 +888,11 @@ nf.Actions = (function () {
             
             // prompt the user before emptying the queue
             nf.Dialog.showYesNoDialog({
-                headerText: 'Empty Queue',
+                headerText:nf._.msg('nf-actions.EmptyQueue'),
                 dialogContent: 'Are you sure you want to empty this queue? All FlowFiles waiting at the time of the request will be removed.',
                 overlayBackground: false,
-                noText: 'Cancel',
-                yesText: 'Empty',
+                noText:nf._.msg('nf-actions.Cancel'),
+                yesText:nf._.msg('nf-actions.Empty'),
                 yesHandler: function () {
                     // get the connection data
                     var connection = selection.datum();
@@ -918,7 +918,7 @@ nf.Actions = (function () {
 
                     // update the button model of the drop request status dialog
                     $('#drop-request-status-dialog').modal('setButtonModel', [{
-                            buttonText: 'Stop',
+                            buttonText:nf._.msg('nf-actions.Stop'),
                             handler: {
                                 click: function () {
                                     cancelled = true;
@@ -928,7 +928,7 @@ nf.Actions = (function () {
                                         // cancel it
                                         clearTimeout(dropRequestTimer);
 
-                                        // cancel the drop request
+                                        // cancel the provenance
                                         completeDropRequest();
                                     }
                                 }
@@ -958,7 +958,7 @@ nf.Actions = (function () {
                                     $('<span class="label"></span>').text(' out of ' + originalTokens[0]).appendTo(results);
                                     $('<span></span>').text(' (' + originalTokens[1] + ')').appendTo(results);
                                 }
-                                $('<span></span>').text(' were removed from the queue.').appendTo(results);
+                                $('<span></span>').text(nf._.msg('nf-actions.Message7')).appendTo(results);
                                 
                                 // if this request failed so the error
                                 if (nf.Common.isDefinedAndNotNull(dropRequest.failureReason)) {
@@ -976,7 +976,7 @@ nf.Actions = (function () {
                         } else {
                             // nothing was removed
                             nf.Dialog.showYesNoDialog({
-                                dialogContent: 'No FlowFiles were removed.',
+                                dialogContent: nf._.msg('nf-actions.Message8'),
                                 overlayBackground: false
                             });
                             
@@ -1028,8 +1028,8 @@ nf.Actions = (function () {
 
                     // issue the request to delete the flow files
                     $.ajax({
-                        type: 'POST',
-                        url: connection.component.uri + '/drop-requests',
+                        type: 'DELETE',
+                        url: connection.component.uri + '/contents',
                         dataType: 'json'
                     }).done(function(response) {
                         // initialize the progress bar value
@@ -1045,24 +1045,7 @@ nf.Actions = (function () {
                 }
             });
         },
-
-        /**
-         * Lists the flow files in the specified connection.
-         *
-         * @param {selection} selection
-         */
-        listQueue: function (selection) {
-            if (selection.size() !== 1 || !nf.CanvasUtils.isConnection(selection)) {
-                return;
-            }
-
-            // get the connection data
-            var connection = selection.datum();
-
-            // list the flow files in the specified connection
-            nf.QueueListing.listQueue(connection);
-        },
-
+        
         /**
          * Opens the fill color dialog for the component in the specified selection.
          * 
@@ -1182,7 +1165,7 @@ nf.Actions = (function () {
 
             // prompt for the template name
             $('#new-template-dialog').modal('setButtonModel', [{
-                    buttonText: 'Create',
+                    buttonText:nf._.msg('nf-actions.Create'),
                     handler: {
                         click: function () {
                             // hide the dialog
@@ -1212,7 +1195,7 @@ nf.Actions = (function () {
                                 }).done(function () {
                                     // show the confirmation dialog
                                     nf.Dialog.showOkDialog({
-                                        dialogContent: "Template '" + nf.Common.escapeHtml(templateName) + "' was successfully created.",
+                                        dialogContent: nf._.msg('nf-actions.Template') + nf.Common.escapeHtml(templateName) + nf._.msg('nf-actions.Message11'),
                                         overlayBackground: false
                                     });
                                 }).always(function () {
@@ -1227,7 +1210,7 @@ nf.Actions = (function () {
                         }
                     }
                 }, {
-                    buttonText: 'Cancel',
+                    buttonText:nf._.msg('nf-actions.Cancel'),
                     handler: {
                         click: function () {
                             $('#new-template-dialog').modal('hide');
@@ -1343,7 +1326,7 @@ nf.Actions = (function () {
                 copySnippet.fail(function () {
                     // unable to create the template
                     nf.Dialog.showOkDialog({
-                        dialogContent: 'An error occurred while attempting to copy and paste.',
+                        dialogContent: nf._.msg('nf-actions.Message12'),
                         overlayBackground: true
                     });
                 });

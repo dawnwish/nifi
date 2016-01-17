@@ -56,7 +56,7 @@ nf.ConnectionDetails = (function () {
             var processorType = $('<div></div>').text(nf.Common.substringAfterLast(processor.type, '.'));
 
             // populate source processor details
-            $('#read-only-connection-source-label').text('From processor');
+            $('#read-only-connection-source-label').text(nf._.msg('nf-connection-details.FromProcessor'));
             $('#read-only-connection-source').append(processorName).append(processorType);
             $('#read-only-connection-source-group-name').text(groupName);
         });
@@ -97,7 +97,7 @@ nf.ConnectionDetails = (function () {
             var remoteProcessGroup = response.remoteProcessGroup;
 
             // populate source port details
-            $('#read-only-connection-source-label').text('From output');
+            $('#read-only-connection-source-label').text(nf._.msg('nf-connection-details.FromOutPut'));
             $('#read-only-connection-source').text(source.name);
             $('#read-only-connection-source-group-name').text(remoteProcessGroup.name);
         });
@@ -114,7 +114,7 @@ nf.ConnectionDetails = (function () {
         return $.Deferred(function (deferred) {
             if (groupId === source.groupId) {
                 // populate source port details
-                $('#read-only-connection-source-label').text('From input');
+                $('#read-only-connection-source-label').text(nf._.msg('nf-connection-details.FromInput'));
                 $('#read-only-connection-source').text(source.name);
                 $('#read-only-connection-source-group-name').text(groupName);
 
@@ -131,7 +131,7 @@ nf.ConnectionDetails = (function () {
                     var processGroup = response.processGroup;
 
                     // populate source port details
-                    $('#read-only-connection-source-label').text('From output');
+                    $('#read-only-connection-source-label').text(nf._.msg('nf-connection-details.FromOutPut'));
                     $('#read-only-connection-source').text(source.name);
                     $('#read-only-connection-source-group-name').text(processGroup.name);
 
@@ -181,7 +181,7 @@ nf.ConnectionDetails = (function () {
                 var processorType = $('<div></div>').text(nf.Common.substringAfterLast(processor.type, '.'));
 
                 // populate destination processor details
-                $('#read-only-connection-target-label').text('To processor');
+                $('#read-only-connection-target-label').text(nf._.msg('nf-connection-details.ToProcessor'));
                 $('#read-only-connection-target').append(processorName).append(processorType);
                 $('#read-only-connection-target-group-name').text(groupName);
 
@@ -201,7 +201,7 @@ nf.ConnectionDetails = (function () {
      */
     var initializeDestinationFunnel = function (groupId, groupName, destination) {
         return $.Deferred(function (deferred) {
-            $('#read-only-connection-target-label').text('To funnel');
+            $('#read-only-connection-target-label').text(nf._.msg('nf-connection-details.ToFunnel'));
             $('#read-only-connection-target').append('funnel');
             $('#read-only-connection-target-group-name').text(groupName);
             deferred.resolve();
@@ -227,7 +227,7 @@ nf.ConnectionDetails = (function () {
             var remoteProcessGroup = response.remoteProcessGroup;
 
             // populate source port details
-            $('#read-only-connection-target-label').text('To input');
+            $('#read-only-connection-target-label').text(nf._.msg('nf-connection-details.ToInput'));
             $('#read-only-connection-target').text(destination.name);
             $('#read-only-connection-target-group-name').text(remoteProcessGroup.name);
         });
@@ -244,7 +244,7 @@ nf.ConnectionDetails = (function () {
         return $.Deferred(function (deferred) {
             if (groupId === destination.groupId) {
                 // populate destination port details
-                $('#read-only-connection-target-label').text('To output');
+                $('#read-only-connection-target-label').text(nf._.msg('nf-connection-details.ToOutput'));
                 $('#read-only-connection-target').text(destination.name);
                 $('#read-only-connection-target-group-name').text(groupName);
 
@@ -261,7 +261,7 @@ nf.ConnectionDetails = (function () {
                     var processGroup = response.processGroup;
 
                     // populate destination port details
-                    $('#read-only-connection-target-label').text('To input');
+                    $('#read-only-connection-target-label').text(nf._.msg('nf-connection-details.ToInput'));
                     $('#read-only-connection-target').text(destination.name);
                     $('#read-only-connection-target-group-name').text(processGroup.name);
 
@@ -298,20 +298,20 @@ nf.ConnectionDetails = (function () {
                 tabStyle: 'tab',
                 selectedTabStyle: 'selected-tab',
                 tabs: [{
-                        name: 'Details',
+                        name: nf._.msg('nf-connection-details.Details'),
                         tabContentId: 'read-only-connection-details-tab-content'
                     }, {
-                        name: 'Settings',
+                        name: nf._.msg('nf-connection-details.Settings'),
                         tabContentId: 'read-only-connection-settings-tab-content'
                     }]
             });
 
             // configure the connection details dialog
             $('#connection-details').modal({
-                headerText: 'Connection Details',
+                headerText:nf._.msg('nf-connection-details.ConnectionDetails'),
                 overlayBackground: overlayBackground,
                 buttons: [{
-                        buttonText: 'Ok',
+                        buttonText:nf._.msg('nf-connection-details.Ok'),
                         handler: {
                             click: function () {
                                 $('#connection-details').modal('hide');

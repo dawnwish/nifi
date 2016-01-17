@@ -23,10 +23,10 @@ nf.PortDetails = (function () {
         init: function () {
             // configure the processor details dialog
             $('#port-details').modal({
-                headerText: 'Port Details',
+                headerText:nf._.msg('nf-port-details.PortDetails'),
                 overlayBackground: true,
                 buttons: [{
-                        buttonText: 'Ok',
+                        buttonText:nf._.msg('nf-port-details.OK'),
                         handler: {
                             click: function () {
                                 // hide the dialog

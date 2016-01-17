@@ -23,7 +23,7 @@ nf.CountersTable = (function () {
      * Configuration object used to hold a number of configuration items.
      */
     var config = {
-        filterText: 'Filter',
+        filterText:nf._.msg('nf-counters-table.Filter'),
         styles: {
             filterList: 'counters-filter-list'
         },
@@ -155,10 +155,10 @@ nf.CountersTable = (function () {
             // filter type
             $('#counters-filter-type').combo({
                 options: [{
-                        text: 'by name',
+                        text:nf._.msg('nf-counters-table.ByName'),
                         value: 'name'
                     }, {
-                        text: 'by context',
+                        text:nf._.msg('nf-counters-table.ByContext'),
                         value: 'context'
                     }],
                 select: function (option) {
@@ -173,16 +173,16 @@ nf.CountersTable = (function () {
 
             // initialize the templates table
             var countersColumns = [
-                {id: 'context', name: 'Context', field: 'context', sortable: true, resizable: true},
-                {id: 'name', name: 'Name', field: 'name', sortable: true, resizable: true},
-                {id: 'value', name: 'Value', field: 'value', sortable: true, resizable: true, defaultSortAsc: false}
+                {id: 'context', name: nf._.msg('nf-counters-table.Context'), field: 'context', sortable: true, resizable: true},
+                {id: 'name', name: nf._.msg('nf-counters-table.Name'), field: 'name', sortable: true, resizable: true},
+                {id: 'value', name: nf._.msg('nf-counters-table.Value'), field: 'value', sortable: true, resizable: true, defaultSortAsc: false}
             ];
 
             // only allow dfm's to reset counters
             if (nf.Common.isDFM()) {
                 // function for formatting the actions column
                 var actionFormatter = function (row, cell, value, columnDef, dataContext) {
-                    return '<img src="images/iconResetCounter.png" title="Reset" class="pointer reset-counter" style="margin-top: 2px;"/>';
+                    return '<img src="images/iconResetCounter.png" title='+nf._.msg('nf-counters-table.Reset')+' class="pointer reset-counter" style="margin-top: 2px;"/>';
                 };
 
                 // add the action column

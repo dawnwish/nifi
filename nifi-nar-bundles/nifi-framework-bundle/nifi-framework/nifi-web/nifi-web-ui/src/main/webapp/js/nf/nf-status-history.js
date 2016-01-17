@@ -22,15 +22,15 @@ nf.StatusHistory = (function () {
         clusterInstanceId: 'cluster-instance-id',
         clusterInstanceLabel: 'Cluster',
         type: {
-            processor: 'Processor',
+            processor: nf._.msg('nf-status-history.Processor'),
             inputPort: 'Input Port',
             outputPort: 'Output Port',
             processGroup: 'Process Group',
             remoteProcessGroup: 'Remote Process Group',
-            connection: 'Connection',
-            funnel: 'Funnel',
-            template: 'Template',
-            label: 'Label'
+            connection: nf._.msg('nf-status-history.Connection'),
+            funnel: nf._.msg('nf-status-history.Funnel'),
+            template: nf._.msg('nf-status-history.Template'),
+            label: nf._.msg('nf-status-history.Label')
         },
         urls: {
             processGroups: '../nifi-api/controller/process-groups/',
@@ -216,7 +216,7 @@ nf.StatusHistory = (function () {
     var insufficientHistory = function () {
         // notify the user
         nf.Dialog.showOkDialog({
-            dialogContent: 'Insufficient history, please try again later.',
+            dialogContent: nf._.msg('nf-status-history.Message'),
             overlayBackground: false
         });
     };
@@ -318,7 +318,7 @@ nf.StatusHistory = (function () {
         $('#status-history-details').empty();
 
         // add status history details
-        var detailsContainer = buildDetailsContainer('Status History');
+        var detailsContainer = buildDetailsContainer(nf._.msg('nf-status-history.StatusHistory'));
         d3.map(statusHistory.details).forEach(function (label, value) {
             addDetailItem(detailsContainer, label, value);
         });

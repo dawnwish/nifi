@@ -300,15 +300,6 @@ nf.ContextMenu = (function () {
     var canEmptyQueue = function (selection) {
         return nf.Common.isDFM() && isConnection(selection);
     };
-
-    /**
-     * Only DFMs can list a queue.
-     *
-     * @param {selection} selection
-     */
-    var canListQueue = function (selection) {
-        return nf.Common.isDFM() && isConnection(selection) && nf.CanvasUtils.supportsModification(selection);
-    };
     
     /**
      * Determines if the components in the specified selection can be moved into a parent group.
@@ -387,34 +378,33 @@ nf.ContextMenu = (function () {
 
     // defines the available actions and the conditions which they apply
     var actions = [
-        {condition: emptySelection, menuItem: {img: 'images/iconRefresh.png', text: 'Refresh status', action: 'reloadStatus'}},
-        {condition: isNotRootGroup, menuItem: {img: 'images/iconGoTo.png', text: 'Leave group', action: 'leaveGroup'}},
-        {condition: isConfigurable, menuItem: {img: 'images/iconConfigure.png', text: 'Configure', action: 'showConfiguration'}},
-        {condition: hasDetails, menuItem: {img: 'images/iconConfigure.png', text: 'View configuration', action: 'showDetails'}},
-        {condition: isProcessGroup, menuItem: {img: 'images/iconGoTo.png', text: 'Enter group', action: 'enterGroup'}},
-        {condition: isRunnable, menuItem: {img: 'images/iconRun.png', text: 'Start', action: 'start'}},
-        {condition: isStoppable, menuItem: {img: 'images/iconStop.png', text: 'Stop', action: 'stop'}},
-        {condition: isRemoteProcessGroup, menuItem: {img: 'images/iconRemotePorts.png', text: 'Remote ports', action: 'remotePorts'}},
-        {condition: canStartTransmission, menuItem: {img: 'images/iconTransmissionActive.png', text: 'Enable transmission', action: 'enableTransmission'}},
-        {condition: canStopTransmission, menuItem: {img: 'images/iconTransmissionInactive.png', text: 'Disable transmission', action: 'disableTransmission'}},
-        {condition: supportsStats, menuItem: {img: 'images/iconChart.png', text: 'Stats', action: 'showStats'}},
-        {condition: canAccessProvenance, menuItem: {img: 'images/iconProvenance.png', imgStyle: 'context-menu-provenance', text: 'Data provenance', action: 'openProvenance'}},
-        {condition: canMoveToFront, menuItem: {img: 'images/iconToFront.png', text: 'Bring to front', action: 'toFront'}},
-        {condition: isConnection, menuItem: {img: 'images/iconGoTo.png', text: 'Go to source', action: 'showSource'}},
-        {condition: isConnection, menuItem: {img: 'images/iconGoTo.png', text: 'Go to destination', action: 'showDestination'}},
-        {condition: hasUpstream, menuItem: {img: 'images/iconSmallRelationship.png', text: 'Upstream connections', action: 'showUpstream'}},
-        {condition: hasDownstream, menuItem: {img: 'images/iconSmallRelationship.png', text: 'Downstream connections', action: 'showDownstream'}},
-        {condition: hasUsage, menuItem: {img: 'images/iconUsage.png', text: 'Usage', action: 'showUsage'}},
-        {condition: isRemoteProcessGroup, menuItem: {img: 'images/iconRefresh.png', text: 'Refresh', action: 'refreshRemoteFlow'}},
-        {condition: isRemoteProcessGroup, menuItem: {img: 'images/iconGoTo.png', text: 'Go to', action: 'openUri'}},
-        {condition: isColorable, menuItem: {img: 'images/iconColor.png', text: 'Change color', action: 'fillColor'}},
-        {condition: isNotConnection, menuItem: {img: 'images/iconCenterView.png', text: 'Center in view', action: 'center'}},
-        {condition: isCopyable, menuItem: {img: 'images/iconCopy.png', text: 'Copy', action: 'copy'}},
-        {condition: isPastable, menuItem: {img: 'images/iconPaste.png', text: 'Paste', action: 'paste'}},
-        {condition: canMoveToParent, menuItem: {img: 'images/iconMoveToParent.png', text: 'Move to parent group', action: 'moveIntoParent'}},
-        {condition: canListQueue, menuItem: {img: 'images/iconListQueue.png', text: 'List queue', action: 'listQueue'}},
-        {condition: canEmptyQueue, menuItem: {img: 'images/iconEmptyQueue.png', text: 'Empty queue', action: 'emptyQueue'}},
-        {condition: isDeletable, menuItem: {img: 'images/iconDelete.png', text: 'Delete', action: 'delete'}}
+        {condition: emptySelection, menuItem: {img: 'images/iconRefresh.png', text:nf._.msg('nf-context-menu.RefreshStatus'), action: 'reloadStatus'}},
+        {condition: isNotRootGroup, menuItem: {img: 'images/iconGoTo.png', text:nf._.msg('nf-context-menu.LeaveGroup'), action: 'leaveGroup'}},
+        {condition: isConfigurable, menuItem: {img: 'images/iconConfigure.png', text:nf._.msg('nf-context-menu.Configure'), action: 'showConfiguration'}},
+        {condition: hasDetails, menuItem: {img: 'images/iconConfigure.png', text:nf._.msg('nf-context-menu.ViewConfiguration'), action: 'showDetails'}},
+        {condition: isProcessGroup, menuItem: {img: 'images/iconGoTo.png', text:nf._.msg('nf-context-menu.EnterGroup'), action: 'enterGroup'}},
+        {condition: isRunnable, menuItem: {img: 'images/iconRun.png', text:nf._.msg('nf-context-menu.Start'), action: 'start'}},
+        {condition: isStoppable, menuItem: {img: 'images/iconStop.png', text:nf._.msg('nf-context-menu.Stop'), action: 'stop'}},
+        {condition: isRemoteProcessGroup, menuItem: {img: 'images/iconRemotePorts.png', text:nf._.msg('nf-context-menu.RemotePorts'), action: 'remotePorts'}},
+        {condition: canStartTransmission, menuItem: {img: 'images/iconTransmissionActive.png', text:nf._.msg('nf-context-menu.EnableTransmission'), action: 'enableTransmission'}},
+        {condition: canStopTransmission, menuItem: {img: 'images/iconTransmissionInactive.png', text:nf._.msg('nf-context-menu.DisableTransmission'), action: 'disableTransmission'}},
+        {condition: supportsStats, menuItem: {img: 'images/iconChart.png', text:nf._.msg('nf-context-menu.Stats'), action: 'showStats'}},
+        {condition: canAccessProvenance, menuItem: {img: 'images/iconProvenance.png', imgStyle: 'context-menu-provenance', text:nf._.msg('nf-context-menu.DataProvenance'), action: 'openProvenance'}},
+        {condition: canMoveToFront, menuItem: {img: 'images/iconToFront.png', text:nf._.msg('nf-context-menu.BringFront'), action: 'toFront'}},
+        {condition: isConnection, menuItem: {img: 'images/iconGoTo.png', text:nf._.msg('nf-context-menu.GoToSource'), action: 'showSource'}},
+        {condition: isConnection, menuItem: {img: 'images/iconGoTo.png', text:nf._.msg('nf-context-menu.GoToDestination'), action: 'showDestination'}},
+        {condition: hasUpstream, menuItem: {img: 'images/iconSmallRelationship.png', text:nf._.msg('nf-context-menu.UpstreamConnections'), action: 'showUpstream'}},
+        {condition: hasDownstream, menuItem: {img: 'images/iconSmallRelationship.png', text:nf._.msg('nf-context-menu.DownstreamConnections'), action: 'showDownstream'}},
+        {condition: hasUsage, menuItem: {img: 'images/iconUsage.png', text:nf._.msg('nf-context-menu.Usage'), action: 'showUsage'}},
+        {condition: isRemoteProcessGroup, menuItem: {img: 'images/iconRefresh.png', text:nf._.msg('nf-context-menu.Refresh'), action: 'refreshRemoteFlow'}},
+        {condition: isRemoteProcessGroup, menuItem: {img: 'images/iconGoTo.png', text:nf._.msg('nf-context-menu.GoTo'), action: 'openUri'}},
+        {condition: isColorable, menuItem: {img: 'images/iconColor.png', text:nf._.msg('nf-context-menu.ChangeColor'), action: 'fillColor'}},
+        {condition: isNotConnection, menuItem: {img: 'images/iconCenterView.png', text:nf._.msg('nf-context-menu.CenterInView'), action: 'center'}},
+        {condition: isCopyable, menuItem: {img: 'images/iconCopy.png', text:nf._.msg('nf-context-menu.Copy'), action: 'copy'}},
+        {condition: isPastable, menuItem: {img: 'images/iconPaste.png', text:nf._.msg('nf-context-menu.Paste'), action: 'paste'}},
+        {condition: canMoveToParent, menuItem: {img: 'images/iconMoveToParent.png', text:nf._.msg('nf-context-menu.MoveParentGroup'), action: 'moveIntoParent'}},
+        {condition: canEmptyQueue, menuItem: {img: 'images/iconEmptyQueue.png', text:nf._.msg('nf-context-menu.EmptyQueue'), action: 'emptyQueue'}},
+        {condition: isDeletable, menuItem: {img: 'images/iconDelete.png', text:nf._.msg('nf-context-menu.Delete'), action: 'delete'}}
     ];
 
     /**

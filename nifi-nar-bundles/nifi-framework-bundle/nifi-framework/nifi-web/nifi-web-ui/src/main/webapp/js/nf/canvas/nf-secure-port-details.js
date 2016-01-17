@@ -52,20 +52,20 @@ nf.SecurePortDetails = (function () {
                 tabStyle: 'tab',
                 selectedTabStyle: 'selected-tab',
                 tabs: [{
-                        name: 'Settings',
+                        name: nf._.msg('nf-secure-port-details.Settings'),
                         tabContentId: 'read-only-secure-port-settings-tab-content'
                     }, {
-                        name: 'Access Control',
+                        name: nf._.msg('nf-secure-port-details.AccessControl'),
                         tabContentId: 'read-only-secure-port-access-control-tab-content'
                     }]
             });
 
             // configure the processor details dialog
             $('#secure-port-details').modal({
-                headerText: 'Secure Port Details',
+                headerText:nf._.msg('nf-secure-port-details.SecurePortDetails'),
                 overlayBackground: true,
                 buttons: [{
-                        buttonText: 'Ok',
+                        buttonText:nf._.msg('nf-secure-port-details.Ok'),
                         handler: {
                             click: function () {
                                 // hide the dialog

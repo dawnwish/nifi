@@ -21,10 +21,10 @@ nf.RemoteProcessGroupDetails = (function () {
     return {
         init: function () {
             $('#remote-process-group-details').modal({
-                headerText: 'Remote Process Group Details',
+                headerText:nf._.msg('nf-remote-process-group-details.RemoteProcessGroupDetails'),
                 overlayBackground: true,
                 buttons: [{
-                        buttonText: 'Ok',
+                        buttonText:nf._.msg('nf-remote-process-group-details.Ok'),
                         handler: {
                             click: function () {
                                 $('#remote-process-group-details').modal('hide');

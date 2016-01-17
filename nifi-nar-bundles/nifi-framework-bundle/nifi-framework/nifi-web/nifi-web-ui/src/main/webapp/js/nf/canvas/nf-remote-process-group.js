@@ -49,7 +49,7 @@ nf.RemoteProcessGroup = (function () {
      */
     var getProcessGroupComments = function (d) {
         if (nf.Common.isBlank(d.component.comments)) {
-            return 'No comments specified';
+            return nf._.msg('nf-remote-process-group.Message1');
         } else {
             return d.component.comments;
         }
@@ -412,7 +412,7 @@ nf.RemoteProcessGroup = (function () {
                                 'y': 4,
                                 'class': 'process-group-stats-label'
                             })
-                            .text('Sent');
+                            .text(nf._.msg('nf-remote-process-group.Sent'));
 
                     // received label
                     remoteProcessGroupStatsLabel.append('text')
@@ -423,7 +423,7 @@ nf.RemoteProcessGroup = (function () {
                                 'y': 17,
                                 'class': 'process-group-stats-label'
                             })
-                            .text('Received');
+                            .text(nf._.msg('nf-remote-process-group.Received'));
 
                     // stats value container
                     var remoteProcessGroupStatsValue = details.append('g')
@@ -570,9 +570,9 @@ nf.RemoteProcessGroup = (function () {
                                     .attr('class', 'tooltip nifi-tooltip')
                                     .text(function () {
                                         if (d.component.targetSecure === true) {
-                                            return 'Site-to-Site is secure.';
+                                            return nf._.msg('nf-remote-process-group.Message2');
                                         } else {
-                                            return 'Site-to-Site is NOT secure.';
+                                            return nf._.msg('nf-remote-process-group.Message3');
                                         }
                                     });
 
@@ -701,7 +701,7 @@ nf.RemoteProcessGroup = (function () {
                             if (nf.Common.isDefinedAndNotNull(d.component.flowRefreshed)) {
                                 return d.component.flowRefreshed;
                             } else {
-                                return 'Remote flow not current';
+                                return nf._.msg('nf-remote-process-group.Message4');
                             }
                         });
 

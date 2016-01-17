@@ -30,22 +30,22 @@ nf.ProcessorConfiguration = (function () {
      */
     var getSchedulingStrategies = function (processor) {
         var strategies = [{
-                text: 'Timer driven',
+                text:nf._.msg('nf-processor-configuration.TimerDriven'),
                 value: 'TIMER_DRIVEN',
-                description: 'Processor will be scheduled to run on an interval defined by the run schedule.'
+                description:nf._.msg('nf-processor-configuration.Message1')
             }];
 
         // conditionally support event driven based on processor
         if (processor.supportsEventDriven === true) {
             strategies.push({
-                text: 'Event driven',
+                text:nf._.msg('nf-processor-configuration.EventDriven'),
                 value: 'EVENT_DRIVEN',
                 description: 'Processor will be scheduled to run when triggered by an event (e.g. a FlowFile enters an incoming queue). This scheduling strategy is experimental.'
             });
         } else if (processor.config['schedulingStrategy'] === 'EVENT_DRIVEN') {
             // the processor was once configured for event driven but no longer supports it
             strategies.push({
-                text: 'Event driven',
+                text:nf._.msg('nf-processor-configuration.EventDriven'),
                 value: 'EVENT_DRIVEN',
                 description: 'Processor will be scheduled to run when triggered by an event (e.g. a FlowFile enters an incoming queue). This scheduling strategy is experimental.',
                 disabled: true
@@ -55,24 +55,24 @@ nf.ProcessorConfiguration = (function () {
         // conditionally support event driven
         if (nf.Canvas.isClustered()) {
             strategies.push({
-                text: 'On primary node',
+                text:nf._.msg('nf-processor-configuration.OnPrimaryNode'),
                 value: 'PRIMARY_NODE_ONLY',
-                description: 'Processor will be scheduled on the primary node on an interval defined by the run schedule.'
+                description:nf._.msg('nf-processor-configuration.Message3')
             });
         } else if (processor.config['schedulingStrategy'] === 'PRIMARY_NODE_ONLY') {
             strategies.push({
-                text: 'On primary node',
+                text:nf._.msg('nf-processor-configuration.OnPrimaryNode'),
                 value: 'PRIMARY_NODE_ONLY',
-                description: 'Processor will be scheduled on the primary node on an interval defined by the run schedule.',
+                description:nf._.msg('nf-processor-configuration.Message3'),
                 disabled: true
             });
         }
 
         // add an option for cron driven
         strategies.push({
-            text: 'CRON driven',
+            text:nf._.msg('nf-processor-configuration.CronDriven'),
             value: 'CRON_DRIVEN',
-            description: 'Processor will be scheduled to run on at specific times based on the specified CRON string.'
+            description:nf._.msg('nf-processor-configuration.Message5')
         });
 
         return strategies;
@@ -99,7 +99,7 @@ nf.ProcessorConfiguration = (function () {
             nf.Dialog.showOkDialog({
                 dialogContent: content,
                 overlayBackground: false,
-                headerText: 'Configuration Error'
+                headerText:nf._.msg('nf-processor-configuration.ConfigurationError')
             });
         } else {
             nf.Common.handleAjaxError(xhr, status, error);
@@ -361,7 +361,7 @@ nf.ProcessorConfiguration = (function () {
             nf.Dialog.showOkDialog({
                 dialogContent: nf.Common.formatUnorderedList(errors),
                 overlayBackground: false,
-                headerText: 'Configuration Error'
+                headerText:nf._.msg('nf-processor-configuration.ConfigurationError')
             });
             return false;
         } else {
@@ -457,16 +457,16 @@ nf.ProcessorConfiguration = (function () {
                 tabStyle: 'tab',
                 selectedTabStyle: 'selected-tab',
                 tabs: [{
-                        name: 'Settings',
+                        name: nf._.msg('nf-processor-configuration.Settings'),
                         tabContentId: 'processor-standard-settings-tab-content'
                     }, {
-                        name: 'Scheduling',
+                        name: nf._.msg('nf-processor-configuration.Scheduling'),
                         tabContentId: 'processor-scheduling-tab-content'
                     }, {
-                        name: 'Properties',
+                        name: nf._.msg('nf-processor-configuration.Properties'),
                         tabContentId: 'processor-properties-tab-content'
                     }, {
-                        name: 'Comments',
+                        name: nf._.msg('nf-processor-configuration.Comments'),
                         tabContentId: 'processor-comments-tab-content'
                     }],
                 select: function () {
@@ -491,7 +491,7 @@ nf.ProcessorConfiguration = (function () {
 
             // initialize the processor configuration dialog
             $('#processor-configuration').modal({
-                headerText: 'Configure Processor',
+                headerText:nf._.msg('nf-processor-configuration.ConfigureProcessor'),
                 overlayBackground: true,
                 handler: {
                     close: function () {
@@ -513,16 +513,16 @@ nf.ProcessorConfiguration = (function () {
             // initialize the bulletin combo
             $('#bulletin-level-combo').combo({
                 options: [{
-                        text: 'DEBUG',
+                        text:nf._.msg('nf-processor-configuration.Debug'),
                         value: 'DEBUG'
                     }, {
-                        text: 'INFO',
+                        text:nf._.msg('nf-processor-configuration.Info'),
                         value: 'INFO'
                     }, {
-                        text: 'WARN',
+                        text:nf._.msg('nf-processor-configuration.Warn'),
                         value: 'WARN'
                     }, {
-                        text: 'ERROR',
+                        text:nf._.msg('nf-processor-configuration.Error'),
                         value: 'ERROR'
                     }]
             });
@@ -701,7 +701,7 @@ nf.ProcessorConfiguration = (function () {
                     }
 
                     var buttons = [{
-                            buttonText: 'Apply',
+                            buttonText:nf._.msg('nf-processor-configuration.Apply'),
                             handler: {
                                 click: function () {
                                     // close all fields currently being edited
@@ -721,7 +721,7 @@ nf.ProcessorConfiguration = (function () {
                                 }
                             }
                         }, {
-                            buttonText: 'Cancel',
+                            buttonText:nf._.msg('nf-processor-configuration.Cancel'),
                             handler: {
                                 click: function () {
                                     $('#processor-configuration').modal('hide');
@@ -732,7 +732,7 @@ nf.ProcessorConfiguration = (function () {
                     // determine if we should show the advanced button
                     if (nf.Common.isDefinedAndNotNull(processor.config.customUiUrl) && processor.config.customUiUrl !== '') {
                         buttons.push({
-                            buttonText: 'Advanced',
+                            buttonText:nf._.msg('nf-processor-configuration.Advanced'),
                             handler: {
                                 click: function () {
                                     var openCustomUi = function () {

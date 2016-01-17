@@ -20,17 +20,17 @@
 nf.CanvasToolbox = (function () {
 
     var config = {
-        filterText: 'Filter',
+        filterText:nf._.msg('nf-canvas-toolbox.Filter'),
         type: {
-            processor: 'Processor',
-            inputPort: 'Input Port',
-            outputPort: 'Output Port',
-            processGroup: 'Process Group',
-            remoteProcessGroup: 'Remote Process Group',
-            connection: 'Connection',
-            funnel: 'Funnel',
-            template: 'Template',
-            label: 'Label'
+            processor: nf._.msg('nf-canvas-toolbox.Processor'),
+            inputPort: nf._.msg('nf-canvas-toolbox.InputPort'),
+            outputPort: nf._.msg('nf-canvas-toolbox.OutputPort'),
+            processGroup: nf._.msg('nf-canvas-toolbox.ProcessGroup'),
+            remoteProcessGroup: nf._.msg('nf-canvas-toolbox.RemoteProcessGroup'),
+            connection: nf._.msg('nf-canvas-toolbox.Connection'),
+            funnel: nf._.msg('nf-canvas-toolbox.Funnel'),
+            template: nf._.msg('nf-canvas-toolbox.Template'),
+            label: nf._.msg('nf-canvas-toolbox.Label')
         },
         styles: {
             filterList: 'filter-list'
@@ -311,12 +311,12 @@ nf.CanvasToolbox = (function () {
 
         // update the button model
         $('#new-processor-dialog').modal('setButtonModel', [{
-                buttonText: 'Add',
+                buttonText:nf._.msg('nf-canvas-toolbox.Add'),
                 handler: {
                     click: addProcessor
                 }
             }, {
-                buttonText: 'Cancel',
+                buttonText:nf._.msg('nf-canvas-toolbox.Cancel'),
                 handler: {
                     click: function () {
                         $('#new-processor-dialog').modal('hide');
@@ -413,12 +413,12 @@ nf.CanvasToolbox = (function () {
         };
 
         $('#new-port-dialog').modal('setButtonModel', [{
-                buttonText: 'Add',
+                buttonText:nf._.msg('nf-canvas-toolbox.Add'),
                 handler: {
                     click: addInputPort
                 }
             }, {
-                buttonText: 'Cancel',
+                buttonText:nf._.msg('nf-canvas-toolbox.Cancel'),
                 handler: {
                     click: function () {
                         $('#new-port-dialog').modal('hide');
@@ -427,7 +427,7 @@ nf.CanvasToolbox = (function () {
             }]);
 
         // update the port type
-        $('#new-port-type').text('Input');
+        $('#new-port-type').text(nf._.msg('nf-canvas-toolbox.Input'));
 
         // show the dialog
         $('#new-port-dialog').modal('show');
@@ -499,12 +499,12 @@ nf.CanvasToolbox = (function () {
         };
 
         $('#new-port-dialog').modal('setButtonModel', [{
-                buttonText: 'Add',
+                buttonText:nf._.msg('nf-canvas-toolbox.Add'),
                 handler: {
                     click: addOutputPort
                 }
             }, {
-                buttonText: 'Cancel',
+                buttonText:nf._.msg('nf-canvas-toolbox.Cancel'),
                 handler: {
                     click: function () {
                         $('#new-port-dialog').modal('hide');
@@ -513,7 +513,7 @@ nf.CanvasToolbox = (function () {
             }]);
 
         // update the port type
-        $('#new-port-type').text('Output');
+        $('#new-port-type').text(nf._.msg('nf-canvas-toolbox.Output'));
 
         // set the focus and show the dialog
         $('#new-port-dialog').modal('show');
@@ -625,12 +625,12 @@ nf.CanvasToolbox = (function () {
         };
 
         $('#new-remote-process-group-dialog').modal('setButtonModel', [{
-                buttonText: 'Add',
+                buttonText:nf._.msg('nf-canvas-toolbox.Add'),
                 handler: {
                     click: addRemoteProcessGroup
                 }
             }, {
-                buttonText: 'Cancel',
+                buttonText:nf._.msg('nf-canvas-toolbox.Cancel'),
                 handler: {
                     click: function () {
                         $('#new-remote-process-group-dialog').modal('hide');
@@ -755,7 +755,7 @@ nf.CanvasToolbox = (function () {
 
                 // update the button model
                 $('#instantiate-template-dialog').modal('setButtonModel', [{
-                        buttonText: 'Add',
+                        buttonText:nf._.msg('nf-canvas-toolbox.Add'),
                         handler: {
                             click: function () {
                                 // get the type of processor currently selected
@@ -770,7 +770,7 @@ nf.CanvasToolbox = (function () {
                             }
                         }
                     }, {
-                        buttonText: 'Cancel',
+                        buttonText:nf._.msg('nf-canvas-toolbox.Cancel'),
                         handler: {
                             click: function () {
                                 $('#instantiate-template-dialog').modal('hide');
@@ -782,8 +782,8 @@ nf.CanvasToolbox = (function () {
                 $('#instantiate-template-dialog').modal('show');
             } else {
                 nf.Dialog.showOkDialog({
-                    headerText: 'Instantiate Template',
-                    dialogContent: 'No templates have been loaded into this NiFi.',
+                    headerText:nf._.msg('nf-canvas-toolbox.Instantiate Template'),
+                    dialogContent: nf._.msg('nf-canvas-toolbox.Message'),
                     overlayBackground: false
                 });
             }
@@ -897,8 +897,8 @@ nf.CanvasToolbox = (function () {
 
                 // initialize the processor type table
                 var processorTypesColumns = [
-                    {id: 'type', name: 'Type', field: 'label', sortable: true, resizable: true},
-                    {id: 'tags', name: 'Tags', field: 'tags', sortable: true, resizable: true}
+                    {id: 'type', name: nf._.msg('nf-canvas-toolbox.Type'), field: 'label', sortable: true, resizable: true},
+                    {id: 'tags', name: nf._.msg('nf-canvas-toolbox.Tags'), field: 'tags', sortable: true, resizable: true}
                 ];
                 var processorTypesOptions = {
                     forceFitColumns: true,
@@ -944,7 +944,7 @@ nf.CanvasToolbox = (function () {
                         // set the processor type description
                         if (nf.Common.isDefinedAndNotNull(processorType)) {
                             if (nf.Common.isBlank(processorType.description)) {
-                                $('#processor-type-description').attr('title', '').html('<span class="unset">No description specified</span>');
+                                $('#processor-type-description').attr('title', '').html('<span class="unset">'+nf._.msg('nf-canvas-toolbox.Message1')+'</span>');
                             } else {
                                 $('#processor-type-description').html(processorType.description).ellipsis();
                             }
@@ -1021,7 +1021,7 @@ nf.CanvasToolbox = (function () {
 
                 // configure the new processor dialog
                 $('#new-processor-dialog').modal({
-                    headerText: 'Add Processor',
+                    headerText:nf._.msg('nf-canvas-toolbox.AddProcessor'),
                     overlayBackground: false
                 }).draggable({
                     containment: 'parent',
@@ -1030,7 +1030,7 @@ nf.CanvasToolbox = (function () {
 
                 // configure the new port dialog
                 $('#new-port-dialog').modal({
-                    headerText: 'Add Port',
+                    headerText:nf._.msg('nf-canvas-toolbox.AddPort'),
                     overlayBackground: false,
                     handler: {
                         close: function () {
@@ -1044,7 +1044,7 @@ nf.CanvasToolbox = (function () {
 
                 // configure the new process group dialog
                 $('#new-process-group-dialog').modal({
-                    headerText: 'Add Process Group',
+                    headerText:nf._.msg('nf-canvas-toolbox.AddProcessGroup'),
                     overlayBackground: false,
                     handler: {
                         close: function () {
@@ -1058,7 +1058,7 @@ nf.CanvasToolbox = (function () {
 
                 // configure the new remote process group dialog
                 $('#new-remote-process-group-dialog').modal({
-                    headerText: 'Add Remote Process Group',
+                    headerText:nf._.msg('nf-canvas-toolbox.AddRemoteProcessGroup'),
                     overlayBackground: false,
                     handler: {
                         close: function () {
@@ -1072,7 +1072,7 @@ nf.CanvasToolbox = (function () {
 
                 // configure the instantiate template dialog
                 $('#instantiate-template-dialog').modal({
-                    headerText: 'Instantiate Template',
+                    headerText:nf._.msg('nf-canvas-toolbox.Instantiate Template'),
                     overlayBackgroud: false
                 }).draggable({
                     containment: 'parent',
@@ -1114,12 +1114,12 @@ nf.CanvasToolbox = (function () {
                 };
 
                 $('#new-process-group-dialog').modal('setButtonModel', [{
-                        buttonText: 'Add',
+                        buttonText:nf._.msg('nf-canvas-toolbox.Add'),
                         handler: {
                             click: addGroup
                         }
                     }, {
-                        buttonText: 'Cancel',
+                        buttonText:nf._.msg('nf-canvas-toolbox.Cancel'),
                         handler: {
                             click: function () {
                                 // reject the deferred

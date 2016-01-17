@@ -39,7 +39,7 @@ nf.ProvenanceLineage = (function () {
 
         // initialize the dialog
         $('#lineage-query-dialog').modal({
-            headerText: 'Computing FlowFile lineage...',
+            headerText:nf._.msg('nf-provenance-lineage.Message1'),
             overlayBackground: false,
             handler: {
                 close: function () {
@@ -818,7 +818,7 @@ nf.ProvenanceLineage = (function () {
 
                         var menuItems = [{
                                 'class': 'lineage-view-event',
-                                'text': 'View details',
+                                'text': nf._.msg('nf-provenance-lineage.ViewDetails'),
                                 'click': function () {
                                     showEventDetails(d.id, clusterNodeId);
                                 }
@@ -845,7 +845,7 @@ nf.ProvenanceLineage = (function () {
 
                                 // show the 'searching...' dialog
                                 $('#lineage-query-dialog').modal('setButtonModel', [{
-                                        buttonText: 'Cancel',
+                                        buttonText:nf._.msg('nf-provenance-lineage.Cancel'),
                                         handler: {
                                             click: function () {
                                                 cancelled = true;
@@ -918,7 +918,7 @@ nf.ProvenanceLineage = (function () {
                                         } else {
                                             // inform the user that no results were found
                                             nf.Dialog.showOkDialog({
-                                                dialogContent: 'The lineage search has completed successfully but there no results were found. The events may have aged off.',
+                                                dialogContent: nf._.msg('nf-provenance-lineage.Message2'),
                                                 overlayBackground: false
                                             });
                                         }
@@ -1037,7 +1037,7 @@ nf.ProvenanceLineage = (function () {
                             // add menu items
                             menuItems.push({
                                 'class': 'lineage-view-parents',
-                                'text': 'Find parents',
+                                'text': nf._.msg('nf-provenance-lineage.Find parents'),
                                 'click': function () {
                                     expandLineage({
                                         lineageRequestType: 'PARENTS',
@@ -1047,7 +1047,7 @@ nf.ProvenanceLineage = (function () {
                                 }
                             }, {
                                 'class': 'lineage-view-children',
-                                'text': 'Expand',
+                                'text': nf._.msg('nf-provenance-lineage.Expand'),
                                 'click': function () {
                                     expandLineage({
                                         lineageRequestType: 'CHILDREN',
@@ -1057,7 +1057,7 @@ nf.ProvenanceLineage = (function () {
                                 }
                             }, {
                                 'class': 'lineage-collapse-children',
-                                'text': 'Collapse',
+                                'text': nf._.msg('nf-provenance-lineage.Collapse'),
                                 'click': function () {
                                     // collapse the children lineage
                                     collapseLineage(d.id);
@@ -1336,7 +1336,7 @@ nf.ProvenanceLineage = (function () {
 
             // show the 'searching...' dialog
             $('#lineage-query-dialog').modal('setButtonModel', [{
-                    buttonText: 'Cancel',
+                    buttonText:nf._.msg('nf-provenance-lineage.Cancel'),
                     handler: {
                         click: function () {
                             cancelled = true;

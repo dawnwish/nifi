@@ -209,7 +209,7 @@ nf.Provenance = (function () {
                             dataType: 'json'
                         }).done(function (response) {
                             var aboutDetails = response.about;
-                            var provenanceTitle = aboutDetails.title + ' Data Provenance';
+                            var provenanceTitle = nf._.msg('nf-about') + nf._.msg('nf-provenance.DataProvenance');
 
                             // set the document title and the about title
                             document.title = provenanceTitle;

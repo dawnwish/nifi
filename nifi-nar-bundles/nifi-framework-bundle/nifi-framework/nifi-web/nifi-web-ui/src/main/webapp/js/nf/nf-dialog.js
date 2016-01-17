@@ -71,7 +71,7 @@ nf.Dialog = (function () {
 
             // update the button model
             $('#nf-ok-dialog').modal('setButtonModel', [{
-                buttonText: 'Ok',
+                buttonText:nf._.msg('nf-dialog.Ok'),
                 handler: {
                     click: function () {
                         // close the dialog
@@ -98,8 +98,8 @@ nf.Dialog = (function () {
                 headerText: '',
                 dialogContent: '',
                 overlayBackgrond: true,
-                yesText: 'Yes',
-                noText: 'No'
+                yesText:nf._.msg('nf-dialog.Yes'),
+                noText:nf._.msg('nf-dialog.No')
             }, options);
 
             // add the content to the prompt

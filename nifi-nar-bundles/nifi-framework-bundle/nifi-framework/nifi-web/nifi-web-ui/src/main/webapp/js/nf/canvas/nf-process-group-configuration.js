@@ -22,10 +22,10 @@ nf.ProcessGroupConfiguration = (function () {
     return {
         init: function () {
             $('#process-group-configuration').modal({
-                headerText: 'Configure Process Group',
+                headerText:nf._.msg('nf-process-group-configuration.ConfigureProcessGroup'),
                 overlayBackground: true,
                 buttons: [{
-                        buttonText: 'Apply',
+                        buttonText:nf._.msg('nf-process-group-configuration.Apply'),
                         handler: {
                             click: function () {
                                 var revision = nf.Client.getRevision();
@@ -66,7 +66,7 @@ nf.ProcessGroupConfiguration = (function () {
                             }
                         }
                     }, {
-                        buttonText: 'Cancel',
+                        buttonText:nf._.msg('nf-process-group-configuration.Cancel'),
                         handler: {
                             click: function () {
                                 $('#process-group-configuration').modal('hide');

@@ -23,10 +23,10 @@ nf.ProcessGroupDetails = (function () {
         init: function () {
             // configure the processor details dialog
             $('#process-group-details').modal({
-                headerText: 'Process Group Details',
+                headerText:nf._.msg('nf-process-group-details.ProcessGroupDetails'),
                 overlayBackground: true,
                 buttons: [{
-                        buttonText: 'Ok',
+                        buttonText:nf._.msg('nf-process-group-details.Ok'),
                         handler: {
                             click: function () {
                                 // hide the dialog

@@ -25,7 +25,7 @@ nf.HistoryTable = (function () {
     var config = {
         defaultStartTime: '00:00:00',
         defaultEndTime: '23:59:59',
-        filterText: 'Filter',
+        filterText:nf._.msg('nf-history-table.Filter'),
         styles: {
             filterList: 'filter-list',
             hidden: 'hidden'
@@ -40,10 +40,10 @@ nf.HistoryTable = (function () {
      */
     var initDetailsDialog = function () {
         $('#action-details-dialog').modal({
-            headerText: 'Action Details',
+            headerText:nf._.msg('nf-history-table.ActionDetail'),
             overlayBackground: false,
             buttons: [{
-                    buttonText: 'Ok',
+                    buttonText:nf._.msg('nf-history-table.Ok'),
                     handler: {
                         click: function () {
                             $('#action-details-dialog').modal('hide');
@@ -69,13 +69,13 @@ nf.HistoryTable = (function () {
         // filter type
         $('#history-filter-type').combo({
             options: [{
-                    text: 'by id',
+                    text:nf._.msg('nf-history-table.ById'),
                     value: 'by id',
-                    description: 'Filters based on the id of the component that was modified'
+                    description:nf._.msg('nf-history-table.Message1')
                 }, {
-                    text: 'by user',
+                    text:nf._.msg('nf-history-table.ByUser'),
                     value: 'by user',
-                    description: 'Filters based on the user that performed the action'
+                    description:nf._.msg('nf-history-table.Message2')
                 }]
         });
 
@@ -94,10 +94,10 @@ nf.HistoryTable = (function () {
 
         // configure the filter dialog
         $('#history-filter-dialog').modal({
-            headerText: 'Filter History',
+            headerText:nf._.msg('nf-history-table.FilterHistory'),
             overlayBackground: false,
             buttons: [{
-                    buttonText: 'Filter',
+                    buttonText:nf._.msg('nf-history-table.Filter'),
                     handler: {
                         click: function () {
                             $('#history-filter-dialog').modal('hide');
@@ -147,7 +147,7 @@ nf.HistoryTable = (function () {
                         }
                     }
                 }, {
-                    buttonText: 'Cancel',
+                    buttonText:nf._.msg('nf-history-table.Cancel'),
                     handler: {
                         click: function () {
                             $('#history-filter-dialog').modal('hide');
@@ -174,10 +174,10 @@ nf.HistoryTable = (function () {
 
         // configure the filter dialog
         $('#history-purge-dialog').modal({
-            headerText: 'Purge History',
+            headerText:nf._.msg('nf-history-table.PurgeHistory'),
             overlayBackground: false,
             buttons: [{
-                    buttonText: 'Purge',
+                    buttonText:nf._.msg('nf-history-table.Purge'),
                     handler: {
                         click: function () {
                             // hide the dialog
@@ -202,14 +202,14 @@ nf.HistoryTable = (function () {
                                 });
                             } else {
                                 nf.Dialog.showOkDialog({
-                                    dialogContent: 'The end date must be specified.',
+                                    dialogContent: nf._.msg('nf-history-table.Message4'),
                                     overlayBackground: false
                                 });
                             }
                         }
                     }
                 }, {
-                    buttonText: 'Cancel',
+                    buttonText:nf._.msg('nf-history-table.Cancel'),
                     handler: {
                         click: function () {
                             $('#history-purge-dialog').modal('hide');
@@ -252,17 +252,17 @@ nf.HistoryTable = (function () {
 
         // define a custom formatter for the more details column
         var moreDetailsFormatter = function (row, cell, value, columnDef, dataContext) {
-            return '<img src="images/iconDetails.png" title="View Details" class="pointer show-action-details" style="margin-top: 4px;"/>';
+            return '<img src="images/iconDetails.png" title='+nf._.msg('nf-history-table.ViewDetails')+' class="pointer show-action-details" style="margin-top: 4px;"/>';
         };
 
         // initialize the templates table
         var historyColumns = [
             {id: 'moreDetails', name: '&nbsp;', sortable: false, resizable: false, formatter: moreDetailsFormatter, width: 50, maxWidth: 50},
-            {id: 'timestamp', name: 'Date/Time', field: 'timestamp', sortable: true, resizable: true},
-            {id: 'sourceName', name: 'Name', field: 'sourceName', sortable: true, resizable: true},
-            {id: 'sourceType', name: 'Type', field: 'sourceType', sortable: true, resizable: true},
-            {id: 'operation', name: 'Operation', field: 'operation', sortable: true, resizable: true},
-            {id: 'userName', name: 'User', field: 'userName', sortable: true, resizable: true}
+            {id: 'timestamp', name: nf._.msg('nf-history-table.DateTime'), field: 'timestamp', sortable: true, resizable: true},
+            {id: 'sourceName', name: nf._.msg('nf-history-table.Name'), field: 'sourceName', sortable: true, resizable: true},
+            {id: 'sourceType', name: nf._.msg('nf-history-table.Type'), field: 'sourceType', sortable: true, resizable: true},
+            {id: 'operation', name: nf._.msg('nf-history-table.Operation'), field: 'operation', sortable: true, resizable: true},
+            {id: 'userName', name: nf._.msg('nf-history-table.User'), field: 'userName', sortable: true, resizable: true}
         ];
         var historyOptions = {
             forceFitColumns: true,
@@ -366,7 +366,7 @@ nf.HistoryTable = (function () {
         if (nf.Common.isDefinedAndNotNull(componentDetails)) {
             if (action.sourceType === 'Processor' || action.sourceType === 'ControllerService' || action.sourceType === 'ReportingTask') {
                 detailsMarkup.append(
-                        $('<div class="action-detail"><div class="history-details-name">Type</div>' + nf.Common.escapeHtml(componentDetails.type) + '</div>'));
+                        $('<div class="action-detail"><div class="history-details-name">'+nf._.msg('nf-history-table.Type')+'</div>' + nf.Common.escapeHtml(componentDetails.type) + '</div>'));
             } else if (action.sourceType === 'RemoteProcessGroup') {
                 detailsMarkup.append(
                         $('<div class="action-detail"><div class="history-details-name">Uri</div>' + nf.Common.formatValue(componentDetails.uri) + '</div>'));
@@ -380,27 +380,27 @@ nf.HistoryTable = (function () {
         if (nf.Common.isDefinedAndNotNull(actionDetails)) {
             if (action.operation === 'Configure') {
                 detailsMarkup.append(
-                        $('<div class="action-detail"><div class="history-details-name">Name</div>' + nf.Common.formatValue(actionDetails.name) + '</div>')).append(
-                        $('<div class="action-detail"><div class="history-details-name">Value</div>' + nf.Common.formatValue(actionDetails.value) + '</div>')).append(
-                        $('<div class="action-detail"><div class="history-details-name">Previous Value</div>' + nf.Common.formatValue(actionDetails.previousValue) + '</div>'));
+                        $('<div class="action-detail"><div class="history-details-name">'+nf._.msg('nf-history-table.Name')+'</div>' + nf.Common.formatValue(actionDetails.name) + '</div>')).append(
+                        $('<div class="action-detail"><div class="history-details-name">'+nf._.msg('nf-history-table.Value')+'</div>' + nf.Common.formatValue(actionDetails.value) + '</div>')).append(
+                        $('<div class="action-detail"><div class="history-details-name">'+nf._.msg('nf-history-table.PreviousValue')+'</div>' + nf.Common.formatValue(actionDetails.previousValue) + '</div>'));
             } else if (action.operation === 'Connect' || action.operation === 'Disconnect') {
                 detailsMarkup.append(
-                        $('<div class="action-detail"><div class="history-details-name">Source Id</div>' + nf.Common.escapeHtml(actionDetails.sourceId) + '</div>')).append(
-                        $('<div class="action-detail"><div class="history-details-name">Source Name</div>' + nf.Common.formatValue(actionDetails.sourceName) + '</div>')).append(
-                        $('<div class="action-detail"><div class="history-details-name">Source Type</div>' + nf.Common.escapeHtml(actionDetails.sourceType) + '</div>')).append(
-                        $('<div class="action-detail"><div class="history-details-name">Relationship(s)</div>' + nf.Common.formatValue(actionDetails.relationship) + '</div>')).append(
-                        $('<div class="action-detail"><div class="history-details-name">Destination Id</div>' + nf.Common.escapeHtml(actionDetails.destinationId) + '</div>')).append(
-                        $('<div class="action-detail"><div class="history-details-name">Destination Name</div>' + nf.Common.formatValue(actionDetails.destinationName) + '</div>')).append(
-                        $('<div class="action-detail"><div class="history-details-name">Destination Type</div>' + nf.Common.escapeHtml(actionDetails.destinationType) + '</div>'));
+                        $('<div class="action-detail"><div class="history-details-name">'+nf._.msg('nf-history-table.SourceId')+'</div>' + nf.Common.escapeHtml(actionDetails.sourceId) + '</div>')).append(
+                        $('<div class="action-detail"><div class="history-details-name">'+nf._.msg('nf-history-table.SourceName')+'</div>' + nf.Common.formatValue(actionDetails.sourceName) + '</div>')).append(
+                        $('<div class="action-detail"><div class="history-details-name">'+nf._.msg('nf-history-table.SourceType')+'</div>' + nf.Common.escapeHtml(actionDetails.sourceType) + '</div>')).append(
+                        $('<div class="action-detail"><div class="history-details-name">'+nf._.msg('nf-history-table.Relationship')+'</div>' + nf.Common.formatValue(actionDetails.relationship) + '</div>')).append(
+                        $('<div class="action-detail"><div class="history-details-name">'+nf._.msg('nf-history-table.DestinationId')+'</div>' + nf.Common.escapeHtml(actionDetails.destinationId) + '</div>')).append(
+                        $('<div class="action-detail"><div class="history-details-name">'+nf._.msg('nf-history-table.DestinationName')+'</div>' + nf.Common.formatValue(actionDetails.destinationName) + '</div>')).append(
+                        $('<div class="action-detail"><div class="history-details-name">'+nf._.msg('nf-history-table.DestinationType')+'</div>' + nf.Common.escapeHtml(actionDetails.destinationType) + '</div>'));
             } else if (action.operation === 'Move') {
                 detailsMarkup.append(
-                        $('<div class="action-detail"><div class="history-details-name">Group</div>' + nf.Common.formatValue(actionDetails.group) + '</div>')).append(
-                        $('<div class="action-detail"><div class="history-details-name">Group Id</div>' + nf.Common.escapeHtml(actionDetails.groupId) + '</div>')).append(
-                        $('<div class="action-detail"><div class="history-details-name">Previous Group</div>' + nf.Common.formatValue(actionDetails.previousGroup) + '</div>')).append(
-                        $('<div class="action-detail"><div class="history-details-name">Previous Group Id</div>' + nf.Common.escapeHtml(actionDetails.previousGroupId) + '</div>'));
+                        $('<div class="action-detail"><div class="history-details-name">'+nf._.msg('nf-history-table.Group')+'</div>' + nf.Common.formatValue(actionDetails.group) + '</div>')).append(
+                        $('<div class="action-detail"><div class="history-details-name">'+nf._.msg('nf-history-table.GroupId')+'</div>' + nf.Common.escapeHtml(actionDetails.groupId) + '</div>')).append(
+                        $('<div class="action-detail"><div class="history-details-name">'+nf._.msg('nf-history-table.PreviousGroup')+'</div>' + nf.Common.formatValue(actionDetails.previousGroup) + '</div>')).append(
+                        $('<div class="action-detail"><div class="history-details-name">'+nf._.msg('nf-history-table.PreviousGroupId')+'</div>' + nf.Common.escapeHtml(actionDetails.previousGroupId) + '</div>'));
             } else if (action.operation === 'Purge') {
                 detailsMarkup.append(
-                        $('<div class="action-detail"><div class="history-details-name">End Date</div>' + nf.Common.escapeHtml(actionDetails.endDate) + '</div>'));
+                        $('<div class="action-detail"><div class="history-details-name">'+nf._.msg('nf-history-table.EndDate')+'</div>' + nf.Common.escapeHtml(actionDetails.endDate) + '</div>'));
             }
         }
 

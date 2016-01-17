@@ -24,10 +24,10 @@ nf.RemoteProcessGroupPorts = (function () {
      */
     var initRemotePortConfigurationDialog = function () {
         $('#remote-port-configuration').modal({
-            headerText: 'Configure Remote Port',
+            headerText:nf._.msg('nf-remote-process-group-ports.ConfigureRemotePort'),
             overlayBackground: false,
             buttons: [{
-                    buttonText: 'Apply',
+                    buttonText:nf._.msg('nf-remote-process-group-ports.Apply'),
                     handler: {
                         click: function () {
                             var remotePortConcurrentTasks = $('#remote-port-concurrent-tasks').val();
@@ -92,7 +92,7 @@ nf.RemoteProcessGroupPorts = (function () {
                                         nf.Dialog.showOkDialog({
                                             dialogContent: content,
                                             overlayBackground: false,
-                                            headerText: 'Configuration Error'
+                                            headerText:nf._.msg('nf-remote-process-group-ports.ConfigurationError')
                                         });
                                     } else {
                                         nf.Common.handleAjaxError(xhr, status, error);
@@ -113,7 +113,7 @@ nf.RemoteProcessGroupPorts = (function () {
                         }
                     }
                 }, {
-                    buttonText: 'Cancel',
+                    buttonText:nf._.msg('nf-remote-process-group-ports.Cancel'),
                     handler: {
                         click: function () {
                             $('#remote-port-configuration').modal('hide');
@@ -137,10 +137,10 @@ nf.RemoteProcessGroupPorts = (function () {
      */
     var initRemoteProcessGroupConfigurationDialog = function () {
         $('#remote-process-group-ports').modal({
-            headerText: 'Remote Process Group Ports',
+            headerText:nf._.msg('nf-remote-process-group-ports.RemoteProcessGroupPorts'),
             overlayBackground: true,
             buttons: [{
-                    buttonText: 'Close',
+                    buttonText:nf._.msg('nf-remote-process-group-ports.Close'),
                     handler: {
                         click: function () {
                             // if this is a DFM, the over status of this node may have changed
@@ -331,7 +331,7 @@ nf.RemoteProcessGroupPorts = (function () {
                             nf.Dialog.showOkDialog({
                                 dialogContent: content,
                                 overlayBackground: false,
-                                headerText: 'Configuration Error'
+                                headerText:nf._.msg('nf-remote-process-group-ports.ConfigurationError')
                             });
                         } else {
                             nf.Common.handleAjaxError(xhr, status, error);
@@ -357,7 +357,7 @@ nf.RemoteProcessGroupPorts = (function () {
 
         // add the comments for this port
         if (nf.Common.isBlank(port.comments)) {
-            $('<div class="remote-port-description unset">No description specified.</div>').appendTo(portContainerDetailsContainer);
+            $('<div class="remote-port-description unset">'+nf._.msg('nf-remote-process-group-ports.Message2')+'</div>').appendTo(portContainerDetailsContainer);
         } else {
             $('<div class="remote-port-description"></div>').text(port.comments).appendTo(portContainerDetailsContainer);
         }

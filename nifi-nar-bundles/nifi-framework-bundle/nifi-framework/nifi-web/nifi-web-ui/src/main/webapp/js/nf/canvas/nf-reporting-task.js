@@ -45,7 +45,7 @@ nf.ReportingTask = (function () {
             nf.Dialog.showOkDialog({
                 dialogContent: content,
                 overlayBackground: false,
-                headerText: 'Configuration Error'
+                headerText:nf._.msg('nf-reporting-task.ConfigurationError')
             });
         } else {
             nf.Common.handleAjaxError(xhr, status, error);
@@ -160,7 +160,7 @@ nf.ReportingTask = (function () {
             nf.Dialog.showOkDialog({
                 dialogContent: nf.Common.formatUnorderedList(errors),
                 overlayBackground: false,
-                headerText: 'Configuration Error'
+                headerText:nf._.msg('nf-reporting-task.ConfigurationError')
             });
             return false;
         } else {
@@ -300,13 +300,13 @@ nf.ReportingTask = (function () {
                 tabStyle: 'tab',
                 selectedTabStyle: 'selected-tab',
                 tabs: [{
-                        name: 'Settings',
+                        name: nf._.msg('nf-reporting-task.Settings'),
                         tabContentId: 'reporting-task-standard-settings-tab-content'
                     }, {
-                        name: 'Properties',
+                        name: nf._.msg('nf-reporting-task.Properties'),
                         tabContentId: 'reporting-task-properties-tab-content'
                     }, {
-                        name: 'Comments',
+                        name: nf._.msg('nf-reporting-task.Comments'),
                         tabContentId: 'reporting-task-comments-tab-content'
                     }],
                 select: function () {
@@ -330,7 +330,7 @@ nf.ReportingTask = (function () {
 
             // initialize the reporting task configuration dialog
             $('#reporting-task-configuration').data('mode', config.edit).modal({
-                headerText: 'Configure Reporting Task',
+                headerText:nf._.msg('nf-reporting-task.ConfigureReportingTask'),
                 overlayBackground: false,
                 handler: {
                     close: function () {
@@ -426,9 +426,9 @@ nf.ReportingTask = (function () {
                 // select the availability when appropriate
                 if (nf.Canvas.isClustered()) {
                     if (reportingTask['availability'] === 'node') {
-                        $('#reporting-task-availability').text('Node');
+                        $('#reporting-task-availability').text(nf._.msg('nf-reporting-task.Node'));
                     } else {
-                        $('#reporting-task-availability').text('Cluster Manager');
+                        $('#reporting-task-availability').text(nf._.msg('nf-reporting-task.ClusterManager'));
                     }
                 }
                 
@@ -447,13 +447,13 @@ nf.ReportingTask = (function () {
                 // initialize the scheduling strategy
                 $('#reporting-task-scheduling-strategy-combo').combo({
                         options: [{
-                        text: 'Timer driven',
+                        text:nf._.msg('nf-reporting-task.TimerDriven'),
                         value: 'TIMER_DRIVEN',
-                        description: 'Reporting task will be scheduled to run on an interval defined by the run schedule.'
+                        description:nf._.msg('nf-reporting-task.Message2')
                     }, {
-                        text: 'CRON driven',
+                        text:nf._.msg('nf-reporting-task.CRONDriven'),
                         value: 'CRON_DRIVEN',
-                        description: 'Reporting task will be scheduled to run on at specific times based on the specified CRON string.'
+                        description:nf._.msg('nf-reporting-task.Message3')
                     }],
                     selectedOption: {
                         value: reportingTask['schedulingStrategy']
@@ -470,7 +470,7 @@ nf.ReportingTask = (function () {
                 });
                 
                 var buttons = [{
-                        buttonText: 'Apply',
+                        buttonText:nf._.msg('nf-reporting-task.Apply'),
                         handler: {
                             click: function () {
                                 // close all fields currently being edited
@@ -488,7 +488,7 @@ nf.ReportingTask = (function () {
                             }
                         }
                     }, {
-                        buttonText: 'Cancel',
+                        buttonText:nf._.msg('nf-reporting-task.Cancel'),
                         handler: {
                             click: function () {
                                 $('#reporting-task-configuration').modal('hide');
@@ -499,7 +499,7 @@ nf.ReportingTask = (function () {
                 // determine if we should show the advanced button
                 if (nf.Common.isDefinedAndNotNull(reportingTask.customUiUrl) && reportingTask.customUiUrl !== '') {
                     buttons.push({
-                        buttonText: 'Advanced',
+                        buttonText:nf._.msg('nf-reporting-task.Advanced'),
                         handler: {
                             click: function () {
                                 var openCustomUi = function () {
@@ -610,16 +610,16 @@ nf.ReportingTask = (function () {
                 // select the availability when appropriate
                 if (nf.Canvas.isClustered()) {
                     if (reportingTask['availability'] === 'node') {
-                        $('#reporting-task-availability').text('Node');
+                        $('#reporting-task-availability').text(nf._.msg('nf-reporting-task.Node'));
                     } else {
-                        $('#reporting-task-availability').text('Cluster Manager');
+                        $('#reporting-task-availability').text(nf._.msg('nf-reporting-task.ClusterManager'));
                     }
                 }
                 
                 // make the scheduling strategy human readable
                 var schedulingStrategy = reportingTask['schedulingStrategy'];
                 if (schedulingStrategy === 'CRON_DRIVEN') {
-                    schedulingStrategy = 'CRON driven';
+                    schedulingStrategy = nf._.msg('nf-reporting-task.CRONDriven');
                 } else {
                     schedulingStrategy = "Timer driven";
                 }
@@ -639,7 +639,7 @@ nf.ReportingTask = (function () {
                 // determine if we should show the advanced button
                 if (nf.Common.isDefinedAndNotNull(nf.CustomUi) && nf.Common.isDefinedAndNotNull(reportingTask.customUiUrl) && reportingTask.customUiUrl !== '') {
                     buttons.push({
-                        buttonText: 'Advanced',
+                        buttonText:nf._.msg('nf-reporting-task.Advanced'),
                         handler: {
                             click: function () {
                                 // reset state and close the dialog manually to avoid hiding the faded background

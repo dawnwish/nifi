@@ -22,8 +22,8 @@ $(document).ready(function () {
         // initialize the NiFi
         nf.Canvas.init();
     } else {
-        $('#message-title').text('Unsupported Browser');
-        $('#message-content').text('Flow graphs are shown using SVG. Please use a browser that supports rendering SVG.');
+        $('#message-title').text(nf._.msg('nf-canvas.Browser'));
+        $('#message-content').text(nf._.msg('nf-canvas.Message1'));
 
         // show the error pane
         $('#message-pane').show();
@@ -1122,11 +1122,6 @@ nf.Canvas = (function () {
                     var configDetails = configResponse.config;
                     var loginDetails = loginResponse.config;
 
-                    // store the content viewer url if available
-                    if (!nf.Common.isBlank(configDetails.contentViewerUrl)) {
-                        $('#nifi-content-viewer-url').text(configDetails.contentViewerUrl);
-                    }
-
                     // when both request complete, load the application
                     isClusteredRequest.done(function () {
                         // get the auto refresh interval
@@ -1150,7 +1145,6 @@ nf.Canvas = (function () {
                             nf.Search.init();
                             nf.Settings.init();
                             nf.Actions.init();
-                            nf.QueueListing.init();
 
                             // initialize the component behaviors
                             nf.Draggable.init();

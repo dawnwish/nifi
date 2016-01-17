@@ -23,7 +23,7 @@ nf.UsersTable = (function () {
      * Configuration object used to hold a number of configuration items.
      */
     var config = {
-        filterText: 'Filter',
+        filterText:nf._.msg('nf-users-table.Filter'),
         styles: {
             filterList: 'users-filter-list'
         },
@@ -38,10 +38,10 @@ nf.UsersTable = (function () {
      */
     var initUserDetailsDialog = function () {
         $('#user-details-dialog').modal({
-            headerText: 'User Details',
+            headerText:nf._.msg('nf-users-table.UserDetails'),
             overlayBackground: false,
             buttons: [{
-                    buttonText: 'Ok',
+                    buttonText:nf._.msg('nf-users-table.Ok'),
                     handler: {
                         click: function () {
                             $('#user-details-dialog').modal('hide');
@@ -66,10 +66,10 @@ nf.UsersTable = (function () {
      */
     var initUserRolesDialog = function () {
         $('#user-roles-dialog').modal({
-            headerText: 'User Roles',
+            headerText:nf._.msg('nf-users-table.UserRoles'),
             overlayBackground: false,
             buttons: [{
-                    buttonText: 'Apply',
+                    buttonText:nf._.msg('nf-users-table.Apply'),
                     handler: {
                         click: function () {
                             var userId = $('#user-id-roles-dialog').val();
@@ -133,7 +133,7 @@ nf.UsersTable = (function () {
                         }
                     }
                 }, {
-                    buttonText: 'Cancel',
+                    buttonText:nf._.msg('nf-users-table.Cancel'),
                     handler: {
                         click: function () {
                             $('#user-roles-dialog').modal('hide');
@@ -155,10 +155,10 @@ nf.UsersTable = (function () {
      */
     var initGroupRolesDialog = function () {
         $('#group-roles-dialog').modal({
-            headerText: 'Group Roles',
+            headerText:nf._.msg('nf-users-table.GroupRoles'),
             overlayBackground: false,
             buttons: [{
-                    buttonText: 'Apply',
+                    buttonText:nf._.msg('nf-users-table.Apply'),
                     handler: {
                         click: function () {
                             var group = $('#group-name-roles-dialog').text();
@@ -215,7 +215,7 @@ nf.UsersTable = (function () {
                         }
                     }
                 }, {
-                    buttonText: 'Cancel',
+                    buttonText:nf._.msg('nf-users-table.Cancel'),
                     handler: {
                         click: function () {
                             $('#group-roles-dialog').modal('hide');
@@ -234,10 +234,10 @@ nf.UsersTable = (function () {
 
     var initUserDeleteDialog = function () {
         $('#user-delete-dialog').modal({
-            headerText: 'Delete User',
+            headerText:nf._.msg('nf-users-table.DeleteUser'),
             overlayBackground: false,
             buttons: [{
-                    buttonText: 'Delete',
+                    buttonText:nf._.msg('nf-users-table.Delete'),
                     handler: {
                         click: function () {
                             var userId = $('#user-id-delete-dialog').val();
@@ -256,7 +256,7 @@ nf.UsersTable = (function () {
                         }
                     }
                 }, {
-                    buttonText: 'Cancel',
+                    buttonText:nf._.msg('nf-users-table.Cancel'),
                     handler: {
                         click: function () {
                             $('#user-delete-dialog').modal('hide');
@@ -278,10 +278,10 @@ nf.UsersTable = (function () {
      */
     var initUserRevokeDialog = function () {
         $('#user-revoke-dialog').modal({
-            headerText: 'Revoke Access',
+            headerText:nf._.msg('nf-users-table.RevokeAccess'),
             overlayBackground: false,
             buttons: [{
-                    buttonText: 'Revoke',
+                    buttonText:nf._.msg('nf-users-table.Revoke'),
                     handler: {
                         click: function () {
                             var userId = $('#user-id-revoke-dialog').val();
@@ -310,7 +310,7 @@ nf.UsersTable = (function () {
                         }
                     }
                 }, {
-                    buttonText: 'Cancel',
+                    buttonText:nf._.msg('nf-users-table.Cancel'),
                     handler: {
                         click: function () {
                             $('#user-revoke-dialog').modal('hide');
@@ -332,10 +332,10 @@ nf.UsersTable = (function () {
      */
     var initGroupRevokeDialog = function () {
         $('#group-revoke-dialog').modal({
-            headerText: 'Revoke Access',
+            headerText:nf._.msg('nf-users-table.RevokeAccess'),
             overlayBackground: false,
             buttons: [{
-                    buttonText: 'Revoke',
+                    buttonText:nf._.msg('nf-users-table.Revoke'),
                     handler: {
                         click: function () {
                             var groupName = $('#group-name-revoke-dialog').text();
@@ -357,7 +357,7 @@ nf.UsersTable = (function () {
                         }
                     }
                 }, {
-                    buttonText: 'Cancel',
+                    buttonText:nf._.msg('nf-users-table.Cancel'),
                     handler: {
                         click: function () {
                             $('#group-revoke-dialog').modal('hide');
@@ -378,10 +378,10 @@ nf.UsersTable = (function () {
      */
     var initUserGroupDialog = function () {
         $('#user-group-dialog').modal({
-            headerText: 'Set Users Group',
+            headerText:nf._.msg('nf-users-table.SetUserGroup'),
             overlayBackground: false,
             buttons: [{
-                    buttonText: 'Group',
+                    buttonText:nf._.msg('nf-users-table.Group'),
                     handler: {
                         click: function () {
                             var group = $.trim($('#group-name').val());
@@ -389,8 +389,8 @@ nf.UsersTable = (function () {
                             // ensure a group name was specified
                             if (group === '') {
                                 nf.Dialog.showOkDialog({
-                                    headerText: 'Group Users',
-                                    dialogContent: 'Group name cannot be blank.',
+                                    headerText:nf._.msg('nf-users-table.GroupUsers'),
+                                    dialogContent: nf._.msg('nf-users-table.Message'),
                                     overlayBackground: false
                                 });
                             } else {
@@ -420,7 +420,7 @@ nf.UsersTable = (function () {
                         }
                     }
                 }, {
-                    buttonText: 'Cancel',
+                    buttonText:nf._.msg('nf-users-table.Cancel'),
                     handler: {
                         click: function () {
                             $('#user-group-dialog').modal('hide');
@@ -460,13 +460,13 @@ nf.UsersTable = (function () {
         // filter type
         $('#users-filter-type').combo({
             options: [{
-                    text: 'by user',
+                    text:nf._.msg('nf-users-table.ByUser'),
                     value: 'userName'
                 }, {
-                    text: 'by group',
+                    text:nf._.msg('nf-users-table.ByGroup'),
                     value: 'userGroup'
                 }, {
-                    text: 'by role',
+                    text:nf._.msg('nf-users-table.ByRole'),
                     value: 'authorities'
                 }],
             select: function (option) {
@@ -569,20 +569,20 @@ nf.UsersTable = (function () {
 
             // if this represents a grouped row
             if (nf.Common.isDefinedAndNotNull(dataContext.userGroup) && grouped) {
-                var actions = '<img src="images/iconEdit.png" title="Edit Access" class="pointer update-group-access" style="margin-top: 2px;"/>&nbsp;<img src="images/iconRevoke.png" title="Revoke Access" class="pointer revoke-group-access" style="margin-top: 2px;"/>&nbsp;&nbsp;<img src="images/ungroup.png" title="Ungroup" class="pointer ungroup"/>';
+                var actions = '<img src="images/iconEdit.png" title='+nf._.msg('nf-users-table.EditAccess')+' class="pointer update-group-access" style="margin-top: 2px;"/>&nbsp;<img src="images/iconRevoke.png" title='+nf._.msg('nf-users-table.RevokeAccess')+' class="pointer revoke-group-access" style="margin-top: 2px;"/>&nbsp;&nbsp;<img src="images/ungroup.png" title='+nf._.msg('nf-users-table.RevokeAccess.Ungroup')+' class="pointer ungroup"/>';
             } else {
                 // return the appropriate markup for an individual user
-                var actions = '<img src="images/iconEdit.png" title="Edit Access" class="pointer update-user-access" style="margin-top: 2px;"/>';
+                var actions = '<img src="images/iconEdit.png" title='+nf._.msg('nf-users-table.EditAccess')+' class="pointer update-user-access" style="margin-top: 2px;"/>';
 
                 if (dataContext.status === 'ACTIVE') {
-                    actions += '&nbsp;<img src="images/iconRevoke.png" title="Revoke Access" class="pointer revoke-user-access"/>';
+                    actions += '&nbsp;<img src="images/iconRevoke.png" title='+nf._.msg('nf-users-table.RevokeAccess')+' class="pointer revoke-user-access"/>';
 
                     // add an ungroup active if appropriate
                     if (nf.Common.isDefinedAndNotNull(dataContext.userGroup)) {
-                        actions += '&nbsp;&nbsp;<img src="images/ungroup.png" title="Ungroup" class="pointer ungroup-user" style="margin-top: 2px;"/>';
+                        actions += '&nbsp;&nbsp;<img src="images/ungroup.png" title='+nf._.msg('nf-users-table.RevokeAccess.Ungroup')+' class="pointer ungroup-user" style="margin-top: 2px;"/>';
                     }
                 } else {
-                    actions += '&nbsp;<img src="images/iconDelete.png" title="Delete Account" class="pointer delete-user-account"/>';
+                    actions += '&nbsp;<img src="images/iconDelete.png" title='+nf._.msg('nf-users-table.DeleteAccount')+' class="pointer delete-user-account"/>';
                 }
             }
 
@@ -592,11 +592,11 @@ nf.UsersTable = (function () {
         // initialize the templates table
         var usersColumns = [
             {id: 'moreDetails', name: '&nbsp;', sortable: false, resizable: false, formatter: moreDetailsFormatter, width: 50, maxWidth: 50},
-            {id: 'userName', name: 'User', field: 'userName', sortable: true, resizable: true},
-            {id: 'userGroup', name: 'Group', field: 'userGroup', sortable: true, resizable: true, formatter: valueFormatter},
-            {id: 'authorities', name: 'Roles', field: 'authorities', sortable: true, resizable: true, formatter: roleFormatter},
-            {id: 'lastAccessed', name: 'Last Accessed', field: 'lastAccessed', sortable: true, defaultSortAsc: false, resizable: true, formatter: valueFormatter},
-            {id: 'status', name: 'Status', field: 'status', sortable: true, resizable: false, formatter: statusFormatter},
+            {id: 'userName', name: nf._.msg('nf-users-table.User'), field: 'userName', sortable: true, resizable: true},
+            {id: 'userGroup', name: nf._.msg('nf-users-table.Group'), field: 'userGroup', sortable: true, resizable: true, formatter: valueFormatter},
+            {id: 'authorities', name: nf._.msg('nf-users-table.Roles'), field: 'authorities', sortable: true, resizable: true, formatter: roleFormatter},
+            {id: 'lastAccessed', name: nf._.msg('nf-users-table.LastAccessed'), field: 'lastAccessed', sortable: true, defaultSortAsc: false, resizable: true, formatter: valueFormatter},
+            {id: 'status', name: nf._.msg('nf-users-table.Status'), field: 'status', sortable: true, resizable: false, formatter: statusFormatter},
             {id: 'actions', name: '&nbsp;', sortable: false, resizable: false, formatter: actionFormatter, width: 100, maxWidth: 100}
         ];
         var usersOptions = {
@@ -740,8 +740,8 @@ nf.UsersTable = (function () {
             groupNameField.focus();
         } else {
             nf.Dialog.showOkDialog({
-                headerText: 'Group Users',
-                dialogContent: 'Select one or more users to group.',
+                headerText:nf._.msg('nf-users-table.GroupUsers'),
+                dialogContent: nf._.msg('nf-users-table.Message4'),
                 overlayBackground: false
             });
         }

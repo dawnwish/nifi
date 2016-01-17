@@ -49,7 +49,7 @@ nf.ProcessGroup = (function () {
      */
     var getProcessGroupComments = function (d) {
         if (nf.Common.isBlank(d.component.comments)) {
-            return 'No comments specified';
+            return nf._.msg('nf-process-group.Message1');
         } else {
             return d.component.comments;
         }
@@ -425,7 +425,7 @@ nf.ProcessGroup = (function () {
                                 'y': 4,
                                 'class': 'process-group-stats-label'
                             })
-                            .text('Queued');
+                            .text(nf._.msg('nf-process-group.Queued'));
 
                     // in label
                     processGroupStatsLabel.append('text')
@@ -436,7 +436,7 @@ nf.ProcessGroup = (function () {
                                 'y': 17,
                                 'class': 'process-group-stats-label'
                             })
-                            .text('In');
+                            .text(nf._.msg('nf-process-group.In'));
 
                     // read/write label
                     processGroupStatsLabel.append('text')
@@ -447,7 +447,7 @@ nf.ProcessGroup = (function () {
                                 'y': 30,
                                 'class': 'process-group-stats-label'
                             })
-                            .text('Read/Write');
+                            .text(nf._.msg('nf-process-group.ReadWrite'));
 
                     // out label
                     processGroupStatsLabel.append('text')
@@ -458,7 +458,7 @@ nf.ProcessGroup = (function () {
                                 'y': 43,
                                 'class': 'process-group-stats-label'
                             })
-                            .text('Out');
+                            .text(nf._.msg('nf-process-group.Out'));
 
                     // stats value container
                     var processGroupStatsValue = details.append('g')

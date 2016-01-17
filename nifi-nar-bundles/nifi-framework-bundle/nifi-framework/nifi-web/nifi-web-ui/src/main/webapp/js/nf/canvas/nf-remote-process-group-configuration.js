@@ -21,10 +21,10 @@ nf.RemoteProcessGroupConfiguration = (function () {
     return {
         init: function () {
             $('#remote-process-group-configuration').modal({
-                headerText: 'Configure Remote Process Group',
+                headerText:nf._.msg('nf-remote-process-group-configuration.ConfigureRemoteProcessGroup'),
                 overlayBackground: true,
                 buttons: [{
-                        buttonText: 'Apply',
+                        buttonText:nf._.msg('nf-remote-process-group-configuration.Apply'),
                         handler: {
                             click: function () {
                                 var remoteProcessGroupId = $('#remote-process-group-id').text();
@@ -71,7 +71,7 @@ nf.RemoteProcessGroupConfiguration = (function () {
                                         nf.Dialog.showOkDialog({
                                             dialogContent: content,
                                             overlayBackground: false,
-                                            headerText: 'Configuration Error'
+                                            headerText:nf._.msg('nf-remote-process-group-configuration.ConfigurationError')
                                         });
                                     } else {
                                         nf.Common.handleAjaxError(xhr, status, error);
@@ -80,7 +80,7 @@ nf.RemoteProcessGroupConfiguration = (function () {
                             }
                         }
                     }, {
-                        buttonText: 'Cancel',
+                        buttonText:nf._.msg('nf-remote-process-group-configuration.Cancel'),
                         handler: {
                             click: function () {
                                 $('#remote-process-group-configuration').modal('hide');

@@ -114,7 +114,7 @@ nf.CanvasHeader = (function () {
             }).done(function (response) {
                 var aboutDetails = response.about;
                 // set the document title and the about title
-                document.title = aboutDetails.title;
+                document.title = nf._.msg('nf-about');
                 $('#nf-version').text(aboutDetails.version);
             }).fail(nf.Common.handleAjaxError);
 
@@ -122,7 +122,7 @@ nf.CanvasHeader = (function () {
             $('#nf-about').modal({
                 overlayBackground: true,
                 buttons: [{
-                        buttonText: 'Ok',
+                        buttonText:nf._.msg('nf-canvas-header.OK'),
                         handler: {
                             click: function () {
                                 $('#nf-about').modal('hide');
@@ -164,16 +164,16 @@ nf.CanvasHeader = (function () {
 
             // initialize the new template dialog
             $('#new-template-dialog').modal({
-                headerText: 'Create Template',
+                headerText:nf._.msg('nf-canvas-header.CreateTemplate'),
                 overlayBackground: false
             });
 
             // configure the fill color dialog
             $('#fill-color-dialog').modal({
-                headerText: 'Fill',
+                headerText:nf._.msg('nf-canvas-header.Fill'),
                 overlayBackground: false,
                 buttons: [{
-                        buttonText: 'Apply',
+                        buttonText:nf._.msg('nf-canvas-header.Apply'),
                         handler: {
                             click: function () {
                                 var selection = nf.CanvasUtils.getSelection();
@@ -226,7 +226,7 @@ nf.CanvasHeader = (function () {
                             }
                         }
                     }, {
-                        buttonText: 'Cancel',
+                        buttonText:nf._.msg('nf-canvas-header.Cancel'),
                         handler: {
                             click: function () {
                                 // close the dialog
@@ -369,7 +369,7 @@ nf.CanvasHeader = (function () {
                 $('#settings-refresh-required-icon').hide();
             }).fail(function () {
                 nf.Dialog.showOkDialog({
-                    dialogContent: 'Unable to refresh the current group.',
+                    dialogContent: nf._.msg('nf-canvas-header.Message'),
                     overlayBackground: true
                 });
             });

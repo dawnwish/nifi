@@ -31,20 +31,20 @@ nf.SecurePortConfiguration = (function () {
             tabStyle: 'tab',
             selectedTabStyle: 'selected-tab',
             tabs: [{
-                    name: 'Settings',
+                    name: nf._.msg('nf-secure-port-configuration'),
                     tabContentId: 'secure-port-settings-tab-content'
                 }, {
-                    name: 'Access Control',
+                    name: nf._.msg('nf-secure-port-configuration.AccessControl'),
                     tabContentId: 'secure-port-access-control-tab-content'
                 }]
         });
 
         // initialize the dialog
         $('#secure-port-configuration').modal({
-            headerText: 'Configure Secure Port',
+            headerText:nf._.msg('nf-secure-port-configuration.ConfigureSecurePort'),
             overlayBackground: true,
             buttons: [{
-                    buttonText: 'Apply',
+                    buttonText:nf._.msg('nf-secure-port-configuration.Apply'),
                     handler: {
                         click: function () {
                             var portId = $('#secure-port-id').text();
@@ -106,7 +106,7 @@ nf.SecurePortConfiguration = (function () {
                         }
                     }
                 }, {
-                    buttonText: 'Cancel',
+                    buttonText:nf._.msg('nf-secure-port-configuration.Cancel'),
                     handler: {
                         click: function () {
                             $('#secure-port-configuration').modal('hide');
