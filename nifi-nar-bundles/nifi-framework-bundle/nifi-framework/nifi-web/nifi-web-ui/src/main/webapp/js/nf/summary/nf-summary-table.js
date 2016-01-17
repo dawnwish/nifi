@@ -597,7 +597,7 @@ nf.SummaryTable = (function () {
         // define the column model for the summary table
         var connectionsColumnModel = [
             {id: 'moreDetails', name: '&nbsp;', sortable: false, resizable: false, formatter: moreConnectionDetails, width: 50, maxWidth: 50},
-            {id: 'sourceName', field: 'sourceName', name: 'Source Name', sortable: true, resizable: true},
+            {id: 'sourceName', field: 'sourceName', name: nf._.msg('nf-summary-table.SourceName'), sortable: true, resizable: true},
             {id: 'name', field: 'name', name: nf._.msg('nf-summary-table.Name'), sortable: true, resizable: true, formatter: valueFormatter},
             {id: 'destinationName', field: 'destinationName', name: nf._.msg('nf-summary-table.DestinationName'), sortable: true, resizable: true},
             inputColumn,
