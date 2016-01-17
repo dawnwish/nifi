@@ -141,6 +141,14 @@
                 <configuration>
                     <webXml>${staging.dir}/WEB-INF/web.xml</webXml>
                     <webResources>
+                        <resource> 
+                            <directory>src/main/java/org/apache/nifi/web/resources/</directory>
+                            <targetPath>WEB-INF/classes/org/apache/nifi/web/resources/</targetPath>
+                            <includes>
+                                <include>*.properties</include>
+                            </includes>
+                            <filtering>true</filtering>
+                        </resource> 
                         <resource>
                             <directory>src/main/webapp/WEB-INF/pages</directory>
                             <targetPath>WEB-INF/pages</targetPath>
@@ -230,7 +238,7 @@
         <profile>
             <id>minify-and-compress</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <canvas.filter>canvas-min.properties</canvas.filter>
@@ -265,7 +273,7 @@
                                     <nomunge>false</nomunge>
                                     <jswarn>false</jswarn>
                                     <nosuffix>true</nosuffix>
-                                    <gzip>true</gzip>
+                                    <gzip>false</gzip>
                                     <aggregations>
                                         <aggregation>
                                             <insertNewLine>true</insertNewLine>
@@ -280,7 +288,6 @@
                                                 <include>${staging.dir}/js/nf/canvas/nf-snippet.js</include>
                                                 <include>${staging.dir}/js/nf/canvas/nf-canvas-toolbox.js</include>
                                                 <include>${staging.dir}/js/nf/canvas/nf-custom-ui.js</include>
-                                                <include>${staging.dir}/js/nf/canvas/nf-queue-listing.js</include>
                                                 <include>${staging.dir}/js/nf/canvas/nf-controller-service.js</include>
                                                 <include>${staging.dir}/js/nf/canvas/nf-reporting-task.js</include>
                                                 <include>${staging.dir}/js/nf/canvas/nf-processor-configuration.js</include>
@@ -446,7 +453,6 @@
                                                 <include>${staging.dir}/css/remote-process-group-configuration.css</include>
                                                 <include>${staging.dir}/css/port-configuration.css</include>
                                                 <include>${staging.dir}/css/port-details.css</include>
-                                                <include>${staging.dir}/css/queue-listing.css</include>
                                                 <include>${staging.dir}/css/label-configuration.css</include>
                                                 <include>${staging.dir}/css/connection-configuration.css</include>
                                                 <include>${staging.dir}/css/connection-details.css</include>
@@ -604,6 +610,7 @@
                                 js/d3/**/*,
                                 js/codemirror/**/*,
                                 js/jquery/**/*,
+                                js/nf/globalization/resources.js
                                 js/nf/nf-namespace.js,
                                 js/nf/nf-namespace.js.gz,
                                 js/nf/nf-status-history.js,
